@@ -1,0 +1,251 @@
+/* Reset styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Banner and overlay */
+.banner {
+  position: relative;
+  height: 65vh;
+  background: url('easy.png') no-repeat center center/cover;
+}
+
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(5, 85, 189, 0.342); /* Semi-transparent overlay */
+}
+
+/* Navigation */
+.navigation {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 25px;
+  position: relative;
+  z-index: 1000;
+  background-color: transparent; /* Transparent background over the banner */
+}
+
+.logo img {
+  height: 50px;
+  border-radius: 5px;
+}
+
+/* Menu */
+.menu {
+  display: flex;
+  list-style: none;
+}
+
+.menu li {
+  position: relative;
+  margin: 0 15px;
+}
+
+.menu li a {
+  text-decoration: none;
+  color: #fff;
+  font-weight: 800;
+  font-size: 1.5rem;
+  padding: 8px 13px;
+  transition: background 0.3s;
+}
+
+.menu li a:hover {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+/* Submenu */
+.submenu {
+  display: none;
+  list-style: none;
+  position:absolute;
+  top: 100%;
+  left: 0;
+  width: 500px; /* Set a specific width for the submenu */
+  background: rgba(255, 255, 255, 0.2);
+  padding: 5px 0;
+
+}
+
+.menu li:hover .submenu {
+  display: flex; /* Display submenu as flex to enable row layout */
+  flex-wrap: wrap;
+}
+
+.submenu li {
+  padding: 5px 10px;
+  width: calc(33.33% - 30px); /* Ensure 3 items per row */
+}
+
+.submenu li a {
+  color: #fff;
+  background-color: #27ae60;
+  font-size: small;
+  padding: 2px 5px;
+  margin: 0;
+  display: inline-block; /* Ensure the links respect width and padding */
+  min-width: 100px; /* Set a minimum width to accommodate longer words */
+  white-space: nowrap; /* Prevent long words from breaking into multiple lines */
+}
+
+
+.submenu li a:hover {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+.submenu li p {
+  color: #fff;
+  font-size: 0.8rem;
+  margin-top: 5px;
+}
+/* Style only the <i> elements inside submenus */
+.submenu li a i {
+  color: #007BFF; /* Change icon color */
+  margin-right: 8px; /* Add space between icon and text */
+  font-size: 28px; /* Adjust icon size */
+  transition: color 0.3s ease; /* Add smooth hover transition */
+}
+
+/* Hover effect */
+.submenu li a:hover i {
+  color: #27ae60; /* Change icon color on hover */
+}
+
+/* Nested submenu */
+.submenu li .submenu {
+  position: relative;
+  display: none;
+  left: 100%; /* Make nested submenu appear to the right */
+  top: 0;
+  background: rgba(5, 85, 189, 0.342);
+}
+
+.submenu li:hover .submenu {
+  display: block;
+}
+
+/* Assessment Button */
+.nav-assessment-btn {
+  background: green;
+  color: #fff;
+  text-decoration: none;
+  padding: 10px 10px;
+  border-radius: 5px;
+  transition: background 0.3s;
+}
+
+.nav-assessment-btn:hover,
+.nav-assessment-btn:focus {
+  background: #27ae60; /* Replaced with greenish color */
+  outline: none;
+}
+
+/* Submenu button */
+.submenu button:hover {
+  background-color: #27ae60; /* Replaced with greenish color */
+}
+
+/* Adding focus state for accessibility */
+.menu li a:focus,
+.submenu li a:focus,
+.nav-assessment-btn:focus,
+.submenu button:focus {
+  outline: 2px solid #27ae60; /* Focus ring updated to greenish color */
+}
+
+/* Responsive Menu Button */
+.menu-btn {
+  display: none;
+}
+
+.menu-icon {
+  display: none;
+  cursor: pointer;
+}
+
+.menu-icon .nav-icon {
+  height: 3px;
+  width: 25px;
+  background: white;
+  margin: 5px 0;
+  transition: all 0.3s ease-in-out;
+}
+
+/* Responsive Styles for Small Devices */
+@media (max-width: 768px) {
+  /* Adjusting navigation for mobile */
+  .menu {
+    display: none;
+    flex-direction: column;
+    position: absolute;
+    top: 70px;
+    left: 0;
+    width: 100%;
+    background: rgba(0, 0, 0, 0.9);
+    text-align: center;
+  }
+
+  .menu-btn:checked + .menu-icon + .menu {
+    display: flex; /* Show the menu on click */
+  }
+
+  .menu li {
+    margin: 15px 0; /* Add space between items on mobile */
+  }
+
+  /* Show the menu button on small screens */
+  .menu-icon {
+    display: block;
+  }
+
+  /* Ensure the logo stays visible */
+  .logo {
+    z-index: 2000;
+  }
+
+  /* Responsive submenu adjustments */
+  .submenu {
+    flex-direction: column;
+  }
+
+  .submenu li {
+    width: 100%; /* Full width for each submenu item on small devices */
+  }
+}
+
+/* Vertical divider */
+.vertical-line {
+  height: 25px;
+  width: 2px;
+  background-color: #fff;
+  display: inline-block;
+  margin: 0 10px;
+}
+
+/* Search input styling */
+.submenu input[type="text"] {
+  padding: 5px;
+  width: 150px;
+  border: none;
+  border-radius: 5px;
+}
+
+.submenu button {
+  padding: 5px 10px;
+  border: none;
+  background-color: #f39c12;
+  color: #fff;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.submenu button:hover {
+  background-color: #27ae60; /* Replaced with greenish color */
+}

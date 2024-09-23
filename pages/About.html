@@ -1,0 +1,644 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VisitorON</title>
+    <link rel="stylesheet" href="#">
+    <!------==========import-poppins-font============-->
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+
+    <!--------------font awesome for icons------------>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+    <style>
+        /* Reset styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Banner and overlay */
+.banner {
+  position: relative;
+  height: 50vh;
+  background: url('images/about.png') no-repeat center center/cover;
+}
+
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(3, 72, 161, 0.541); /* Semi-transparent overlay */
+}
+
+/* Navigation */
+.navigation {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 25px;
+  position: fixed; /* Changed from relative to fixed */
+  top: 0; /* Ensures the menu sticks to the top */
+  left: 0; /* Ensures the menu sticks to the left */
+  width: 100%; /* Ensures the menu spans the full width of the page */
+  z-index: 1000;
+  background-color: #fff;
+}
+
+
+.logo img {
+  height: 50px;
+  border-radius: 5px;
+}
+
+/* Menu */
+.menu {
+  display: flex;
+  list-style: none;
+}
+
+.menu li {
+  position: relative;
+  margin: 0 15px;
+}
+
+.menu li a {
+  text-decoration: none;
+  color: #000;
+  font-weight: 800;
+  font-size: 1.5rem;
+  padding: 8px 13px;
+  transition: background 0.3s;
+}
+
+.menu li a:hover {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+/* Submenu */
+.submenu {
+  display: none;
+  list-style: none;
+  position:absolute;
+  top: 100%;
+  left: 0;
+  width: 500px; /* Set a specific width for the submenu */
+  background:white;
+  padding: 5px 0;
+
+}
+
+.menu li:hover .submenu {
+  display: flex; /* Display submenu as flex to enable row layout */
+  flex-wrap: wrap;
+}
+
+.submenu li {
+  padding: 5px 10px;
+  width: calc(33.33% - 30px); /* Ensure 3 items per row */
+}
+
+.submenu li a {
+  color: #000;
+  font-size: small;
+  padding: 2px 5px;
+  margin: 0;
+  display: inline-block; /* Ensure the links respect width and padding */
+  min-width: 100px; /* Set a minimum width to accommodate longer words */
+  white-space: nowrap; /* Prevent long words from breaking into multiple lines */
+}
+
+
+.submenu li a:hover {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+.submenu li p {
+  color: #fff;
+  font-size: 0.8rem;
+  margin-top: 5px;
+}
+/* Style only the <i> elements inside submenus */
+.submenu li a i {
+  color: #007BFF; /* Change icon color */
+  margin-right: 8px; /* Add space between icon and text */
+  font-size: 28px; /* Adjust icon size */
+  transition: color 0.3s ease; /* Add smooth hover transition */
+}
+
+/* Hover effect */
+.submenu li a:hover i {
+  color: #27ae60; /* Change icon color on hover */
+}
+
+/* Nested submenu */
+.submenu li .submenu {
+  position: relative;
+  display: none;
+  left: 100%; /* Make nested submenu appear to the right */
+  top: 0;
+  background: rgba(5, 85, 189, 0.342);
+}
+
+.submenu li:hover .submenu {
+  display: block;
+}
+
+/* Assessment Button */
+.nav-assessment-btn {
+  background: #3AAA35;
+  color: #fff;
+  text-decoration: none;
+  font-size: 15px;
+  padding: 10px 10px;
+  border-radius: 5px;
+  margin-right: 30px;
+  transition: background 0.3s;
+}
+
+.nav-assessment-btn:hover,
+.nav-assessment-btn:focus {
+  background: #27ae60; /* Replaced with greenish color */
+  outline: none;
+}
+
+/* Submenu button */
+.submenu button:hover {
+  background-color: #27ae60; /* Replaced with greenish color */
+}
+
+/* Adding focus state for accessibility */
+.menu li a:focus,
+.submenu li a:focus,
+.nav-assessment-btn:focus,
+.submenu button:focus {
+  outline: 2px solid #27ae60; /* Focus ring updated to greenish color */
+}
+
+/* Responsive Menu Button */
+.menu-btn {
+  display: none;
+}
+
+.menu-icon {
+  display: none;
+  cursor: pointer;
+}
+
+.menu-icon .nav-icon {
+  height: 3px;
+  width: 25px;
+  background: white;
+  margin: 5px 0;
+  transition: all 0.3s ease-in-out;
+}
+
+      
+/* Down Arrow Styling */
+.down-arrow {
+    width: 40px;
+    height: 40px;
+    margin: -20px auto 20px; /* Adjust margins to position the arrow */
+    border-right: 5px solid rgba(0, 183, 255, 0.979); /* Adjusted from border-left to border-right */
+    border-bottom: 5px solid rgba(0, 183, 255, 0.979);
+    transform: rotate(45deg); /* This already rotates the arrow to point downwards */
+    animation: bounce 2s infinite;
+}
+
+@keyframes bounce {
+    0%, 20%, 50%, 80%, 100% {
+        transform: translateY(0) rotate(45deg); /* Keep rotation */
+    }
+    40% {
+        transform: translateY(-10px) rotate(45deg);
+    }
+    60% {
+        transform: translateY(-5px) rotate(45deg);
+    }
+}
+
+.content {
+    max-width: 1000px;
+    margin: 0 auto; /* centers the div */
+    text-align: center; /* centers text inside the div */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* adds shadow */
+    background-color: #fff; /* optional: gives the content a background */
+    border-radius: 10px; /* optional: adds rounded corners */
+    height: 30vh;
+}
+
+.large-font {
+    max-width: 800px;
+    margin: 0 auto; /* centers h1 inside its container */
+}
+
+.paragraph-text {
+    text-align: center;
+    max-width: 600px;
+    margin: 0 auto; /* centers p inside its container */
+    text-align: justify; /* makes paragraph text more readable */
+}
+
+.section-content {
+    position: relative;
+    display: flex;
+    justify-content: center; /* centers the content horizontally */
+    align-items: center; /* centers items vertically */
+    gap: 20px; /* space between the text and image */
+    margin-top: 70px; /* optional: margin at the top */
+    margin-bottom: 30px;
+}
+.section-header{
+    color:#3AAA35
+}
+
+.section-text {
+    max-width: 600px; /* controls the width of the text section */
+}
+
+.section-content img {
+    max-width: 400px; /* controls the size of the image */
+    height: auto; /* maintains image aspect ratio */
+}
+
+.section-text {
+    max-width: 400px; /* limits the text width */
+    align-self: flex-start; /* ensures the text is aligned to the top */
+   
+}
+
+.section-content img {
+    max-width: 600px; /* controls the size of the image */
+    height: auto; /* maintains the image aspect ratio */
+}
+
+.trusted-content {
+    background-color: #007bff; /* blue background */
+    padding: 20px; /* padding for inner spacing */
+    margin-top: 50px; /* top margin */
+    text-align: center; /* centers h2, p, and aligns content */
+    border-radius: 10px; /* optional: rounded corners */
+}
+
+.trusted-content h2, .trusted-content p {
+    color: white; /* makes text readable on blue background */
+}
+
+.trusted-content img {
+    max-width: 50px; /* makes images small */
+    margin: 10px; /* adds spacing between images */
+    display: inline-block; /* ensures the images align horizontally */
+    vertical-align: middle; /* aligns images to the middle */
+}
+
+
+
+/*===========footer========*/
+footer {
+  width: 100%;
+  background-color: #f5f7fb;
+}
+
+.footer-container {
+  padding: 50px 0px;
+  max-width: 1200px;
+  width: 90%;
+  padding: 50px 0px;
+  margin: 0px auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+.footer-company-box {
+  max-width: 330px;
+}
+
+.footer-company-box p {
+  color: #585858;
+  margin: 5px 0px;
+  font-size: 0.9rem;
+  line-height: 1.4rem;
+  letter-spacing: 0.3px;
+}
+
+.footer-social {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.footer-social a {
+  margin-top: 10px;
+  margin-right: 10px;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 0.9rem;
+  color: #333333;
+  border: 1px solid #e9e9e9;
+  transition: all ease 0.3s;
+}
+
+.footer-social a:hover {
+  background-color: #122853;
+  color: #ffffff;
+}
+
+.footer-link-box strong {
+  color: #122853;
+  font-size: 1.1rem;
+  font-weight: 600;
+}
+
+.footer-link-box ul {
+  margin-top: 5px;
+}
+
+.footer-link-box ul li {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.footer-link-box ul li a {
+  color: #585858;
+  font-size: 0.9rem;
+  margin-left: 10px;
+  transition: all ease 0.3s;
+  display: flex;
+  align-items: center;
+}
+
+.footer-link-box ul li a i {
+  margin-right: 8px;
+  color: #4fda42;
+}
+
+.footer-link-box ul li a:hover {
+  color: #4fda42;
+}
+
+.footer-bottom {
+  border-top: 1px solid #e9e9e9;
+  padding: 20px 0px;
+  max-width: 1200px;
+  text-align: center;
+  width: 90%;
+  margin: auto;
+}
+
+.footer-bottom span {
+  color: #252525;
+  font-size: 0.9rem;
+  text-align: center;
+}
+
+.scroll-line {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 5px; /* Height of the line */
+    background-color: blue; /* Change to your preferred color */
+    width: 0; /* Initial width */
+    transition: width 0.2s ease; 
+    z-index: 1000; /* Make sure it stays on top */
+}
+
+</style>
+</head>
+<body>
+    <div class="banner">
+        <div class="overlay">
+            <!---============nav area============-->
+            <nav class="navigation">
+                <!-- Menu Button for Small Screens -->
+                <input type="checkbox" class="menu-btn" id="menu-btn" style="display: none;">
+                <label for="menu-btn" class="menu-icon">
+                    <span class="nav-icon"></span>
+                    <span class="nav-icon"></span>
+                    <span class="nav-icon"></span>
+                </label>
+                
+                <!-- Logo -->
+                <a href="#" class="logo">
+                    <img src="images/logo.png" alt="VisitorON Logo" style="height: 50px; border-radius: 5px;">
+                </a>
+                
+                <!-- Menu -->
+                <ul class="menu">
+                    <li><a href="#">Find Help <i class="fa fa-chevron-down"></i></a>
+                        <!-- Sub-menu -->
+                        <ul class="submenu">
+                            <li><a href="pages/contact.html"><i class="fa fa-phone"></i> Contact</a></li>
+                            <li><a href="pages/About.html"><i class="fa fa-info-circle"></i> About</a></li>
+                            <li><a href="#"><i class="fa fa-book"></i> Resources</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="#">Solutions <i class="fa fa-chevron-down"></i></a>
+                        <!-- Sub-menu -->
+                        <ul class="submenu">
+                            <li><a href="#"><i class="fa fa-users"></i> Visitor Management</a></li>
+                            <li><a href="#"><i class="fa fa-cogs"></i> Integrations</a></li>
+                            <li><a href="#"><i class="fa fa-mobile"></i> Applications</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="#">Pricing <i class="fa fa-chevron-down"></i></a>
+                        <!-- Sub-menu -->
+                        <ul class="submenu">
+                            <li><a href="#"><i class="fa fa-list"></i> Plans</a></li>
+                            <li><a href="#"><i class="fa fa-file-text"></i> Get Quote</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="#">Industries <i class="fa fa-chevron-down"></i></a>
+                        <!-- Sub-menu -->
+                        <ul class="submenu">
+                            <li><a href="#"><i class="fa fa-graduation-cap"></i> Education</a></li>
+                            <li><a href="#"><i class="fa fa-building"></i> Real estate</a></li>
+                            <li><a href="#"><i class="fa fa-university"></i> Government</a></li>
+                            <li><a href="#"><i class="fa fa-gavel"></i> Law</a></li>
+                            <li><a href="#"><i class="fa fa-hospital"></i> Healthcare</a></li>
+                            <li><a href="#"><i class="fa fa-industry"></i> Manufacturing</a></li>
+                            <li><a href="#"><i class="fa fa-money-bill"></i> Banking & Finance</a></li>
+                        </ul>
+                    </li>
+                    <li style="border: 2px solid #4fda42; border-radius: 5px;">
+                      <a href="#" class="login">
+                          Login <i class="fa fa-chevron-down" style="margin-left: 5px; color: #4fda42;"></i>
+                      </a>
+                      <!-- Sub-menu -->
+                      <ul class="submenu">
+                          <li><a href="#">Administrators</a></li>
+                          <li><a href="#">Gate-Security</a></li>
+                      </ul>
+                  </li>
+                  </ul>
+    
+                <!-- Get Started Button -->
+                <a href="pages/get_started.html" class="nav-assessment-btn">Get Started</a>
+            </nav>
+        </div>
+    </div>
+    
+    <div class="down-arrow"></div>
+
+    <div class="content">
+        <h1 class="large-font">Life is much better when humans have the best experiences</h1>
+        <p class="paragraph-text">
+            “ We strive every day to get the best experience. We’re here to help you
+            size streamline your visitor management processes so they can be safer, more secure, and
+            more efficient
+        </p>
+    </div>
+    
+     <div class="section-content">
+            <div class="section-text">
+                <h2 class="section-header">What got us here</h2>
+                <p>We have you in mind! There’s no need to use a book to register visitors. Just GO Digital!</p>
+<br>
+<p>We help you create exceptional, modern experiences for both employees and visitors, enabling seamless collaboration.</p>
+<br>
+<p>Make data-driven decisions with confidence. We give you a unified platform that provides insights on utilization, combining occupancy data and space usage analysis to help you make the right decisions.</p>
+<br>
+<p>Our solutions are designed to enhance efficiency, ensuring that every visit is logged accurately and every experience is optimized for both hosts and guests.</p>
+
+            </div>
+            <img src="images/about_1.png" alt="Digital Experience">
+     </div>
+
+        <div class="trusted-content">
+            <h2>We’re trusted</h2>
+            <p>Many clients trust us across various industries. We create safer, more secure, and more efficient workplaces.</p>
+            
+            <img src="images/KCB.png" alt="Client Logo 1">
+            <img src="images/MARA.jfif" alt="Client Logo 2">
+            <img src="images/Kenyatta.png" alt="Client Logo 3">
+            <img src="images/UON.jfif" alt="Client Logo 4">
+        </div>
+    </div>
+
+    <div class="section-content">
+        <img src="images/nairobi_1.jpg" alt="Digital Experience">
+        <div class="section-text">
+            <h2 class="section-header">We're based in Nairobi Kenya.</h2>
+
+            <p>
+                The welcoming nature of our people. We strive to bring these qualities into everything
+                we do here at VisitorOn with our values of simplicity, flexibility, and experience.
+            </p>
+            <br>
+            <p>
+                Our goal is to create innovative solutions that streamline visitor management processes while keeping security and efficiency at the forefront.
+            </p>
+            <br>
+            <p>
+                We’re dedicated to providing an exceptional user experience that is both intuitive and reliable, ensuring that your visitors feel safe and welcome.
+            </p>
+            <br>
+            <p>
+                Our team of professionals is constantly innovating, ensuring that our solutions evolve with your needs and the ever-changing technological landscape.
+            </p>
+            <br>
+            <p>
+                With VisitorOn, you can trust that your visitor management system is designed to be scalable, flexible, and tailored to fit your specific requirements.
+            </p>
+        </div>
+    </div>
+
+    <!--====Footer====-->
+<section>
+    <footer>
+      <div class="footer-container">
+        
+        <!-- Company Box -->
+        <div class="footer-company-box">
+          <!-- Details -->
+          <p>Contact our dedicated team through social links.</p>
+          <!-- Social Icons -->
+          <div class="footer-social">
+            <a href="#"><i class="fab fa-facebook-f"></i></a>
+            <a href="#"><i class="fab fa-x"></i></a>
+            <a href="#"><i class="fab fa-instagram"></i></a>
+            <a href="#"><i class="fab fa-linkedin-in"></i></a>
+          </div>
+        </div>
+        <!-- End Company Box -->
+        
+        <!-- Main Links Box -->
+  <div class="footer-link-box">
+    <strong>Main Links</strong>
+    <ul>
+      <li><a href="#"><i class="fas fa-hands-helping"></i> Find Help</a></li>
+      <li><a href="#"><i class="fas fa-lightbulb"></i> Solutions</a></li>
+      <li><a href="#"><i class="fas fa-industry"></i> Industries</a></li>
+      <li><a href="#"><i class="fas fa-dollar-sign"></i> Pricing</a></li>
+      <li><a href="#"><i class="fas fa-sign-in-alt"></i> Login</a></li>
+    </ul>
+  </div>
+  
+        <!-- Extra Links Box (Empty for now) -->
+        <div class="footer-link-box">
+        </div>
+        <!-- End Extra Links Box -->
+  
+      </div>
+      <!-- End Footer Container -->
+  
+      <!-- Bottom Footer -->
+      <div class="footer-bottom">
+        <span>Powered by Infiware Solution Ltd. Copyright &copy; 2024</span>
+      </div>
+      <!-- End Bottom Footer -->
+    </footer>
+  </section>
+                      <!-- Swiper JS -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script>
+        
+    /*=========team==========*/
+    var swiper = new Swiper(".mySwiperteam", {
+        slidesPerView: 1,
+        spaceBetween: 10,
+        pagination: {
+          el: ".swiper-pagination",
+          clickable: true,
+        },
+        breakpoints: {
+          560: {
+            slidesPerView: 2,
+            spaceBetween: 20,
+          },
+          950: {
+            slidesPerView: 3,
+            spaceBetween: 40,
+          },
+          1250: {
+            slidesPerView: 4,
+            spaceBetween: 50,
+          },
+        },
+      });
+
+      /*--==========testimonials========--*/
+      var swiper = new Swiper(".mySwipertest", {
+        pagination: {
+            el: ".swiper-pagination",
+            clickable: true,
+        },
+        });
+
+        
+    </script>
+</body>
+</html>

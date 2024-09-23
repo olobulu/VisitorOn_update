@@ -1,0 +1,708 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VisitorON</title>
+    <link rel="stylesheet" href="#">
+    <!------==========import-poppins-font============-->
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+
+    <!--------------font awesome for icons------------>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+    <style>
+        /* Reset styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Banner and overlay */
+.banner {
+  position: relative;
+  height: 55vh;
+  background: url('images/banking_1') no-repeat center center/cover;
+}
+
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(3, 72, 161, 0.541); /* Semi-transparent overlay */
+}
+
+/* Navigation */
+.navigation {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 25px;
+  position: relative;
+  z-index: 1000;
+  background-color: transparent; /* Transparent background over the banner */
+}
+
+.logo img {
+  height: 50px;
+  border-radius: 5px;
+}
+
+/* Menu */
+.menu {
+  display: flex;
+  list-style: none;
+}
+
+.menu li {
+  position: relative;
+  margin: 0 15px;
+}
+
+.menu li a {
+  text-decoration: none;
+  color: #fff;
+  font-weight: 800;
+  font-size: 1.5rem;
+  padding: 8px 13px;
+  transition: background 0.3s;
+}
+
+.menu li a:hover {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+/* Submenu */
+.submenu {
+  display: none;
+  list-style: none;
+  position:absolute;
+  top: 100%;
+  left: 0;
+  width: 500px; /* Set a specific width for the submenu */
+  background: rgba(255, 255, 255, 0.2);
+  padding: 5px 0;
+
+}
+
+.menu li:hover .submenu {
+  display: flex; /* Display submenu as flex to enable row layout */
+  flex-wrap: wrap;
+}
+
+.submenu li {
+  padding: 5px 10px;
+  width: calc(33.33% - 30px); /* Ensure 3 items per row */
+}
+
+.submenu li a {
+  color: #fff;
+  background-color: #27ae60;
+  font-size: small;
+  padding: 2px 5px;
+  margin: 0;
+  display: inline-block; /* Ensure the links respect width and padding */
+  min-width: 100px; /* Set a minimum width to accommodate longer words */
+  white-space: nowrap; /* Prevent long words from breaking into multiple lines */
+}
+
+
+.submenu li a:hover {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+.submenu li p {
+  color: #fff;
+  font-size: 0.8rem;
+  margin-top: 5px;
+}
+/* Style only the <i> elements inside submenus */
+.submenu li a i {
+  color: #007BFF; /* Change icon color */
+  margin-right: 8px; /* Add space between icon and text */
+  font-size: 28px; /* Adjust icon size */
+  transition: color 0.3s ease; /* Add smooth hover transition */
+}
+
+/* Hover effect */
+.submenu li a:hover i {
+  color: #27ae60; /* Change icon color on hover */
+}
+
+/* Nested submenu */
+.submenu li .submenu {
+  position: relative;
+  display: none;
+  left: 100%; /* Make nested submenu appear to the right */
+  top: 0;
+  background: rgba(5, 85, 189, 0.342);
+}
+
+.submenu li:hover .submenu {
+  display: block;
+}
+
+/* Assessment Button */
+.nav-assessment-btn {
+  background: green;
+  color: #fff;
+  text-decoration: none;
+  padding: 10px 10px;
+  border-radius: 5px;
+  transition: background 0.3s;
+}
+
+.nav-assessment-btn:hover,
+.nav-assessment-btn:focus {
+  background: #27ae60; /* Replaced with greenish color */
+  outline: none;
+}
+
+/* Submenu button */
+.submenu button:hover {
+  background-color: #27ae60; /* Replaced with greenish color */
+}
+
+/* Adding focus state for accessibility */
+.menu li a:focus,
+.submenu li a:focus,
+.nav-assessment-btn:focus,
+.submenu button:focus {
+  outline: 2px solid #27ae60; /* Focus ring updated to greenish color */
+}
+
+/* Responsive Menu Button */
+.menu-btn {
+  display: none;
+}
+
+.menu-icon {
+  display: none;
+  cursor: pointer;
+}
+
+.menu-icon .nav-icon {
+  height: 3px;
+  width: 25px;
+  background: white;
+  margin: 5px 0;
+  transition: all 0.3s ease-in-out;
+}
+
+      
+/* Down Arrow Styling */
+.down-arrow {
+    width: 40px;
+    height: 40px;
+    margin: -20px auto 20px; /* Adjust margins to position the arrow */
+    border-right: 5px solid rgba(0, 183, 255, 0.979); /* Adjusted from border-left to border-right */
+    border-bottom: 5px solid rgba(0, 183, 255, 0.979);
+    transform: rotate(45deg); /* This already rotates the arrow to point downwards */
+    animation: bounce 2s infinite;
+}
+
+@keyframes bounce {
+    0%, 20%, 50%, 80%, 100% {
+        transform: translateY(0) rotate(45deg); /* Keep rotation */
+    }
+    40% {
+        transform: translateY(-10px) rotate(45deg);
+    }
+    60% {
+        transform: translateY(-5px) rotate(45deg);
+    }
+}
+
+
+.after-arrow {
+    max-width: 600px; /* Limit content width */
+    margin: 0 auto; /* Center the content */
+    text-align: center; /* Center-align text */
+  }
+
+  .after-arrow p {
+    text-transform: lowercase; /* Convert all text in <p> to lowercase */
+  }
+
+  .Visitor-in {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    width: 100%;
+    margin-top: 70px; /* 40px bottom margin */
+}
+
+.image-content, .text-content {
+    width: 50%; /* Equal widths for both divs */
+}
+
+.image-content img {
+    width: 90%; /* Full width image */
+    height: auto;
+    border-radius: 10px;
+    margin-left: 20px;
+    margin-right: 20px;
+    margin-top: 100px;
+}
+
+.text-content h1 {
+    margin-top: 40px;
+    font-size: 1rem;
+    margin-bottom: 10px;
+    color: #ccc;
+}
+.text-content h2 {
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+}
+.text-content ul {
+    list-style: none;
+    padding-left: 0;
+}
+
+.text-content li {
+    list-style: none;
+    position: relative;
+    padding-left: 25px;
+    margin-bottom: 10px;
+}
+
+.text-content li::before {
+    content: '\2713'; /* Unicode for tick/check mark */
+    position: absolute;
+    left: 0;
+    color: green;
+    font-size: 1.2rem;
+}
+
+
+
+.container {
+    display: flex;
+    flex-direction: column;
+    background-color:  rgba(28, 73, 218, 0.575);
+    padding: 20px;
+    clip-path: ellipse(100% 100% at 50% 50%); /* Curved top edge */
+}
+
+.row {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+.feature {
+    flex: 1;
+    min-width: 200px;
+    color: white;
+    padding: 15px;
+    box-sizing: border-box;
+    text-align: center;
+}
+.icon-screening::before {
+    content: "🛡️"; /* Visitor Screening */
+    font-size: 50px;
+}
+
+.icon-badge::before {
+    content: "🎫"; /* ID Badge Printing */
+    font-size: 50px;
+}
+
+.icon-gdpr::before {
+    content: "🔐"; /* Data Privacy and GDPR Compliant */
+    font-size: 50px;
+}
+
+.icon-tracing::before {
+    content: "📅"; /* Contact Tracing */
+    font-size: 50px;
+}
+
+.icon-signin::before {
+    content: "📝"; /* Visitor Sign In */
+    font-size: 50px;
+}
+
+.icon-userfriendly::before {
+    content: "👌"; /* User Friendly */
+    font-size: 50px;
+}
+
+#school-safety {
+  background-color: #f0f8ff;
+  padding: 40px 20px;
+}
+
+.school-safety-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+h2 {
+  font-size: 28px;
+  color: #333;
+  margin-bottom: 20px;
+}
+
+p {
+  font-size: 16px;
+  color: #555;
+  margin-bottom: 20px;
+  line-height: 1.6;
+}
+
+.school-examples {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  margin-top: 30px;
+}
+
+.school {
+  background-color: #ffffff;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  max-width: 300px;
+  width: 100%;
+}
+
+.school h4 {
+  font-size: 18px;
+  color: #0073e6;
+  margin-bottom: 10px;
+}
+
+.school p {
+  font-size: 14px;
+  color: #666;
+}
+
+/*===========footer========*/
+footer {
+  width: 100%;
+  background-color: #f5f7fb;
+}
+
+.footer-container {
+  padding: 50px 0px;
+  max-width: 1200px;
+  width: 90%;
+  padding: 50px 0px;
+  margin: 0px auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+.footer-company-box {
+  max-width: 330px;
+}
+
+.footer-company-box p {
+  color: #585858;
+  margin: 5px 0px;
+  font-size: 0.9rem;
+  line-height: 1.4rem;
+  letter-spacing: 0.3px;
+}
+
+.footer-social {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.footer-social a {
+  margin-top: 10px;
+  margin-right: 10px;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 0.9rem;
+  color: #333333;
+  border: 1px solid #e9e9e9;
+  transition: all ease 0.3s;
+}
+
+.footer-social a:hover {
+  background-color: #122853;
+  color: #ffffff;
+}
+
+.footer-link-box strong {
+  color: #122853;
+  font-size: 1.1rem;
+  font-weight: 600;
+}
+
+.footer-link-box ul {
+  margin-top: 5px;
+}
+
+.footer-link-box ul li {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.footer-link-box ul li a {
+  color: #585858;
+  font-size: 0.9rem;
+  margin-left: 10px;
+  transition: all ease 0.3s;
+  display: flex;
+  align-items: center;
+}
+
+.footer-link-box ul li a i {
+  margin-right: 8px;
+  color: #4fda42;
+}
+
+.footer-link-box ul li a:hover {
+  color: #4fda42;
+}
+
+.footer-bottom {
+  border-top: 1px solid #e9e9e9;
+  padding: 20px 0px;
+  max-width: 1200px;
+  text-align: center;
+  width: 90%;
+  margin: auto;
+}
+
+.footer-bottom span {
+  color: #252525;
+  font-size: 0.9rem;
+  text-align: center;
+}
+
+</style>
+</head>
+<body>
+    <div class="banner">
+        <div class="overlay">
+            <!---============nav area============-->
+            <nav class="navigation">
+                <!-- Menu Button for Small Screens -->
+                <input type="checkbox" class="menu-btn" id="menu-btn" style="display: none;">
+                <label for="menu-btn" class="menu-icon">
+                    <span class="nav-icon"></span>
+                    <span class="nav-icon"></span>
+                    <span class="nav-icon"></span>
+                </label>
+                
+                <!-- Logo -->
+                <a href="#" class="logo">
+                    <img src="images/logo.png" alt="VisitorON Logo" style="height: 50px; border-radius: 5px;">
+                </a>
+                
+                <!-- Menu -->
+                <ul class="menu">
+                    <li><a href="#">Find Help <i class="fa fa-chevron-down"></i></a>
+                        <!-- Sub-menu -->
+                        <ul class="submenu">
+                            <li><a href="pages/contact.html"><i class="fa fa-phone"></i> Contact</a></li>
+                            <li><a href="pages/About.html"><i class="fa fa-info-circle"></i> About</a></li>
+                            <li><a href="#"><i class="fa fa-book"></i> Resources</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="#">Solutions <i class="fa fa-chevron-down"></i></a>
+                        <!-- Sub-menu -->
+                        <ul class="submenu">
+                            <li><a href="#"><i class="fa fa-users"></i> Visitor Management</a></li>
+                            <li><a href="#"><i class="fa fa-cogs"></i> Integrations</a></li>
+                            <li><a href="#"><i class="fa fa-mobile"></i> Applications</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="#">Pricing <i class="fa fa-chevron-down"></i></a>
+                        <!-- Sub-menu -->
+                        <ul class="submenu">
+                            <li><a href="#"><i class="fa fa-list"></i> Plans</a></li>
+                            <li><a href="#"><i class="fa fa-file-text"></i> Get Quote</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="#">Industries <i class="fa fa-chevron-down"></i></a>
+                        <!-- Sub-menu -->
+                        <ul class="submenu">
+                            <li><a href="#"><i class="fa fa-graduation-cap"></i> Education</a></li>
+                            <li><a href="#"><i class="fa fa-building"></i> Real estate</a></li>
+                            <li><a href="#"><i class="fa fa-university"></i> Government</a></li>
+                            <li><a href="#"><i class="fa fa-gavel"></i> Law</a></li>
+                            <li><a href="#"><i class="fa fa-hospital"></i> Healthcare</a></li>
+                            <li><a href="#"><i class="fa fa-industry"></i> Manufacturing</a></li>
+                            <li><a href="#"><i class="fa fa-money-bill"></i> Banking & Finance</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="#"><i class="fa fa-search"></i></a>
+                        <!-- Sub-menu -->
+                        <ul class="submenu">
+                            <li><input type="text" placeholder="visitoron">
+                                <button>GO</button>
+                            </li>
+                        </ul>
+                    </li>
+                    <li><a href="#"><span class="vertical-line"></span></a></li>
+                    <li><a href="pages/login.html" class="login"><i class="fa fa-user"></i>&nbsp;&nbsp;Login</a></li>
+                </ul>
+    
+                <!-- Get Started Button -->
+                <a href="pages/get_started.html" class="nav-assessment-btn">Get Started</a>
+            </nav>
+        </div>
+    </div>
+<div class="down-arrow"></div>
+
+<div class="after-arrow">
+    <h1>Visitor & employee management for <sap style="color:rgba(0, 183, 255, 0.979);">banking and finance</sap></h1>
+    <p>VisitorOn is utilized in banking and finance institutions globally to effectively manage visitors
+    entering and exiting the premises, ensuring compliance with strict security protocols and enhancing operational safety.</p>
+</div>
+
+<div class="Visitor-in" style="margin-left: 40px;">
+    <div class="text-content">
+      <h1>Efficient Visitor Registration for Banks and Financial Institutions</h1>
+      <h2>A <span style="color: rgba(0, 183, 255, 0.979);">Professional First Impression</span> for Your Banking Facility</h2>
+      <p>
+          <li>Customize VisitorON to reflect your bank's identity with tailored branding options</li>
+      
+          <li>Instantly notify employees and managers of visitor arrivals via the VisitorON Pocket app</li>
+      
+          <li>Enhance security with photo capture and printed visitor ID badges for all guests</li>
+          
+          <li>Maintain a secure environment by tracking visitor history for clients and partners</li>
+      </p>
+      
+    </div>
+    <div class="image-content">
+        <img src="images/banking_1" alt="Visitor Management" style="margin-top: 5px;">
+    </div>
+</div>
+
+<div class="container">
+  <h1 style="text-align: center; max-width: 600px;  margin: 0 auto;  ">Why VisitorOn is the best fit for your <sap style="color:rgba(7, 146, 14, 0.979);">bank or financial institution</sap></h1>
+    <div class="row">
+        <div class="feature">
+            <i class="icon-screening"></i>
+            <h3>Visitor Screening</h3>
+            <p>Screen all visitors entering your premises with essential security questions to ensure safety and notify relevant personnel.</p>
+        </div>
+        <div class="feature">
+            <i class="icon-badge"></i>
+            <h3>ID Badge Printing</h3>
+            <p>Quickly identify visitors with printed badges, enhancing security and compliance in sensitive areas.</p>
+        </div>
+        <div class="feature">
+            <i class="icon-gdpr"></i>
+            <h3>Data Privacy and GDPR Compliant</h3>
+            <p>All visitor data is securely stored, and the VisitorOn system is fully compliant with GDPR and data privacy regulations.</p>
+        </div>
+    </div>
+    <div class="row">
+        <div class="feature">
+            <i class="icon-tracing"></i>
+            <h3>Visitor History</h3>
+            <p>Maintain a comprehensive log of all visitors to ensure accountability and traceability within your banking operations.</p>
+        </div>
+        <div class="feature">
+            <i class="icon-signin"></i>
+            <h3>Efficient Sign In</h3>
+            <p>Simplify the sign-in process for clients and auditors visiting your facility, improving their experience.</p>
+        </div>
+        <div class="feature">
+            <i class="icon-userfriendly"></i>
+            <h3>User Friendly</h3>
+            <p>The system is designed for ease of use, ensuring that clients can navigate it effortlessly.</p>
+        </div>
+    </div>
+</div>
+
+<section id="banking-safety">
+  <div class="school-safety-container">
+    <h2>Enhance Security, Save Time, and Provide a Professional Experience for Your Banking Facility</h2>
+    <p>Our banking visitor management system efficiently tracks who has signed in and out, when and where. This creates a digital record crucial for compliance and security audits. The modern sign-in software saves valuable time for staff, while its intuitive interface ensures a seamless experience for clients and visitors alike.</p>
+
+    <p>With a paperless, eco-friendly sign-in process, ID badge printing, visitor screening questions, and comprehensive visitor history, VisitorsON's banking visitor management system is perfect for various applications. From retail banks to investment firms, financial institutions worldwide are optimizing their operations with VisitorsON.</p>
+
+    <h3>See how VisitorsON is used by banking institutions:</h3>
+    <div class="school-examples">
+      <div class="school">
+        <h4>Nairobi Kenya</h4>
+        <p>KCB, Equity Bank, Cooperative Bank</p>
+      </div>
+      <div class="school">
+        <h4>Eldoret Kenya</h4>
+        <p=Co-operative Bank of Kenya, Standard Chartered, Family Bank</p>
+      </div>
+      <div class="school">
+        <h4>Narok Kenya</h4>
+        <p=Narok County Credit Union, Postbank, National Bank</p>
+      </div>
+    </div>
+
+    <p>Over 15,000 financial institutions are already using VisitorsON.</p>
+  </div>
+</section>
+
+<!--====Footer====-->
+<section>
+  <footer>
+    <div class="footer-container">
+      
+      <!-- Company Box -->
+      <div class="footer-company-box">
+        <!-- Logo -->
+        <img src="images/logo.png" alt="VisitorON Logo" style="height: 50px; border-radius: 5px;">
+        <!-- Details -->
+        <p>Contact our dedicated team through social links.</p>
+        <!-- Social Icons -->
+        <div class="footer-social">
+          <a href="#"><i class="fab fa-facebook-f"></i></a>
+          <a href="#"><i class="fab fa-x"></i></a>
+          <a href="#"><i class="fab fa-instagram"></i></a>
+          <a href="#"><i class="fab fa-linkedin-in"></i></a>
+        </div>
+      </div>
+      <!-- End Company Box -->
+      
+      <!-- Main Links Box -->
+<div class="footer-link-box">
+  <strong>Main Links</strong>
+  <ul>
+    <li><a href="#"><i class="fas fa-hands-helping"></i> Find Help</a></li>
+    <li><a href="#"><i class="fas fa-lightbulb"></i> Solutions</a></li>
+    <li><a href="#"><i class="fas fa-industry"></i> Industries</a></li>
+    <li><a href="#"><i class="fas fa-dollar-sign"></i> Pricing</a></li>
+    <li><a href="#"><i class="fas fa-sign-in-alt"></i> Login</a></li>
+  </ul>
+</div>
+
+      <!-- Extra Links Box (Empty for now) -->
+      <div class="footer-link-box">
+      </div>
+      <!-- End Extra Links Box -->
+
+    </div>
+    <!-- End Footer Container -->
+
+    <!-- Bottom Footer -->
+    <div class="footer-bottom">
+      <span>Powered by Infiware Solution Ltd. Copyright &copy; 2024</span>
+    </div>
+    <!-- End Bottom Footer -->
+  </footer>
+</section>
