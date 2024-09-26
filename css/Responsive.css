@@ -266,7 +266,8 @@
     }
  }
   
- @media screen and (max-width: 620px) {
+
+ @media screen and (max-width: 720px) {
    /* General Styles */
    body {
        font-size: 14px;
@@ -519,195 +520,180 @@ strong, span{
     margin: 5px 0; /* Space between list items */
 }
 }
-@media(max-width:520px){
-    
-   .what-we-provide {
-    margin-top: 40px;
-    margin-top: 40px;
-    display: flex;
-    flex-direction: column; /* Stacks items vertically */
-    align-items: center; /* Centers the content horizontally */
-    gap: 10px; /* Adds space between the items */
-   height: 65vh;
-   margin-left: 5px;
-}
-    .footer-container{
-       grid-template-columns: 1fr;
+@media screen and(min-width:520px){
+
+     /* General Styles */
+     body {
+        font-size: 12px; /* Smaller font for readability */
+        padding: 0 5px; /* Less padding to fit smaller screens */
     }
+ 
+    h1, h2, h3, h4, h5, h6 {
+        font-size: 1em; /* Reduce heading size */
+    }
+ 
+    .logo {
+        margin-left: 0;
+        margin-right: auto;
+        display: inline-block;
+    }
+ 
+    .nav-assessment-btn {
+     display: none;
+    }
+ 
+    img {
+        max-width: 100%;
+        height: auto;
+    }
+ 
+    .service {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+ 
+    .service img {
+        width: 100%;
+        height: auto;
+        max-width: 300px; /* Set a smaller maximum width */
+        max-height: 200px; /* Set a smaller maximum height */
+    }
+ 
+    .what-we-provide {
+        margin-top: 30px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 5px;
+        height: 50vh;
+        margin-left: 2px;
+    }
+ 
+    .w-info-box {
+        width: 90%;
+        padding: 8px; /* Slightly reduce padding */
+        text-align: center;
+        background-color: #f4f4f4;
+        border-radius: 6px; /* Smaller rounding for a cleaner look */
+        overflow: hidden;
+        margin-left: 0px;
+        margin-top: 10px;
+    }
+ 
+    .w-info-icon {
+        font-size: 30px; /* Adjust icon size */
+        margin-bottom: 8px;
+    }
+ 
+    .w-info-text strong {
+        font-size: 1.2em; /* Smaller strong text */
+        margin-bottom: 5px;
+    }
+ 
+    .w-info-text p {
+        font-size: 0.8em; /* Adjust paragraph font size */
+        line-height: 1.4em;
+    }
+ 
+    /* Container holding the content */
+    .story-number-box {
+        grid-template-columns: 1fr; /* Single column for smaller screens */
+        gap: 3px;
+        height: 50vh;
+        text-align: center;
+    }
+ 
+    .story-number-box div {
+        margin: 10px 0;
+    }
+ 
+    strong, span {
+        width: 180px; /* Reduced width */
+        text-align: center;
+    }
+ 
+    /* How It Manifest Section */
+    .how-it-manifest-left {
+        width: 100%;
+        margin-bottom: 15px;
+    }
+ 
+    .how-it-manifest-box {
+        width: 100%;
+        margin-bottom: 10px;
+        text-align: center;
+    }
+ 
+    .how-it-manifest-box-text {
+        font-size: 0.9em; /* Smaller text */
+    }
+ 
+    /* Explore Section */
+    .Explore {
+        flex-direction: column; /* Stack boxes vertically */
+        gap: 10px; /* Less space between boxes */
+        padding: 10px;
+    }
+ 
+    .Explore-image-box {
+        width: 150px; /* Reduced width */
+    }
+ 
+    .Explore-image {
+        max-width: 100%;
+        height: auto;
+    }
+ 
+    .Explore-image-box-text {
+        margin-top: 8px;
+    }
+ 
+    /* Partners Section */
+    .partners-grid {
+        justify-content: center;
+    }
+ 
+    .partner {
+        width: 100%; /* Full width for smaller screens */
+    }
+ 
+    .partner img {
+        width: 120px; /* Adjust width for smaller image */
+    }
+ 
+    .partner-description {
+        font-size: 12px; /* Smaller text */
+    }
+ 
+    /* Footer */
+    .footer-container {
+        padding: 15px;
+        text-align: center;
+    }
+ 
+    .footer-company-box,
+    .footer-link-box {
+        margin-bottom: 15px;
+        width: 100%;
+        text-align: center;
+    }
+ 
+    .footer-link-box strong {
+        margin-bottom: 8px;
+    }
+ 
+    .footer-link-box ul {
+        margin-left: 40px; /* Reduced margin */
+    }
+ 
+    .footer-bottom {
+        margin-right: 0; /* No right margin */
+        font-size: 12px; /* Smaller font */
+    }
+ 
+    .footer-social a {
+        font-size: 20px; /* Smaller icons */
+    }
+    
  }
-    @media screen and (max-width: 320px) {
-        /* General Styles */
-        body {
-            font-size: 12px; /* Smaller font for readability */
-            padding: 0 5px; /* Less padding to fit smaller screens */
-        }
-     
-        h1, h2, h3, h4, h5, h6 {
-            font-size: 1em; /* Reduce heading size */
-        }
-     
-        .logo {
-            margin-left: 0;
-            margin-right: auto;
-            display: inline-block;
-        }
-     
-        .nav-assessment-btn {
-         display: none;
-        }
-     
-        img {
-            max-width: 100%;
-            height: auto;
-        }
-     
-        .service {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-        }
-     
-        .service img {
-            width: 100%;
-            height: auto;
-            max-width: 300px; /* Set a smaller maximum width */
-            max-height: 200px; /* Set a smaller maximum height */
-        }
-     
-        .what-we-provide {
-            margin-top: 30px;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 5px;
-            height: 50vh;
-            margin-left: 2px;
-        }
-     
-        .w-info-box {
-            width: 90%;
-            padding: 8px; /* Slightly reduce padding */
-            text-align: center;
-            background-color: #f4f4f4;
-            border-radius: 6px; /* Smaller rounding for a cleaner look */
-            overflow: hidden;
-            margin-left: 0px;
-            margin-top: 10px;
-        }
-     
-        .w-info-icon {
-            font-size: 30px; /* Adjust icon size */
-            margin-bottom: 8px;
-        }
-     
-        .w-info-text strong {
-            font-size: 1.2em; /* Smaller strong text */
-            margin-bottom: 5px;
-        }
-     
-        .w-info-text p {
-            font-size: 0.8em; /* Adjust paragraph font size */
-            line-height: 1.4em;
-        }
-     
-        /* Container holding the content */
-        .story-number-box {
-            grid-template-columns: 1fr; /* Single column for smaller screens */
-            gap: 3px;
-            height: 50vh;
-            text-align: center;
-        }
-     
-        .story-number-box div {
-            margin: 10px 0;
-        }
-     
-        strong, span {
-            width: 180px; /* Reduced width */
-            text-align: center;
-        }
-     
-        /* How It Manifest Section */
-        .how-it-manifest-left {
-            width: 100%;
-            margin-bottom: 15px;
-        }
-     
-        .how-it-manifest-box {
-            width: 100%;
-            margin-bottom: 10px;
-            text-align: center;
-        }
-     
-        .how-it-manifest-box-text {
-            font-size: 0.9em; /* Smaller text */
-        }
-     
-        /* Explore Section */
-        .Explore {
-            flex-direction: column; /* Stack boxes vertically */
-            gap: 10px; /* Less space between boxes */
-            padding: 10px;
-        }
-     
-        .Explore-image-box {
-            width: 150px; /* Reduced width */
-        }
-     
-        .Explore-image {
-            max-width: 100%;
-            height: auto;
-        }
-     
-        .Explore-image-box-text {
-            margin-top: 8px;
-        }
-     
-        /* Partners Section */
-        .partners-grid {
-            justify-content: center;
-        }
-     
-        .partner {
-            width: 100%; /* Full width for smaller screens */
-        }
-     
-        .partner img {
-            width: 120px; /* Adjust width for smaller image */
-        }
-     
-        .partner-description {
-            font-size: 12px; /* Smaller text */
-        }
-     
-        /* Footer */
-        .footer-container {
-            padding: 15px;
-            text-align: center;
-        }
-     
-        .footer-company-box,
-        .footer-link-box {
-            margin-bottom: 15px;
-            width: 100%;
-            text-align: center;
-        }
-     
-        .footer-link-box strong {
-            margin-bottom: 8px;
-        }
-     
-        .footer-link-box ul {
-            margin-left: 40px; /* Reduced margin */
-        }
-     
-        .footer-bottom {
-            margin-right: 0; /* No right margin */
-            font-size: 12px; /* Smaller font */
-        }
-     
-        .footer-social a {
-            font-size: 20px; /* Smaller icons */
-        }
-     }
-     
