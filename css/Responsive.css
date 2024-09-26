@@ -284,8 +284,7 @@
     display: inline-block; /* Ensure proper alignment */
 }
 .nav-assessment-btn{
-    margin-right: 0px;
-    margin-left: 30px;
+     display: none;
 }
 
   
