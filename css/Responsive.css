@@ -1,0 +1,713 @@
+
+ /*===========responsive========*/
+ .menu-btn{
+    display: none;
+  }
+  @media(max-width:1050px) {
+    
+.logo img {
+    height: 50px;
+    border-radius: 5px;
+  }
+  .menu li a {
+    text-decoration: none;
+    color: #000;
+    font-weight: 800;
+    font-size: 1rem;
+    padding: 8px 13px;
+    transition: background 0.3s;
+  }
+  
+/* Submenu */
+.submenu {
+    display: none;
+    list-style: none;
+    position:absolute;
+    top: 100%;
+    left: 0;
+    width: 400px; /* Set a specific width for the submenu */
+    background:white;
+    padding: 5px 0;
+  
+  }
+  .submenu li {
+    padding: 5px 10px;
+    width: calc(50% - 20px); /* Ensure 2 items per row */
+  }
+/* Style only the <i> elements inside submenus */
+.submenu li a i {
+    color: #007BFF; /* Change icon color */
+    margin-right: 8px; /* Add space between icon and text */
+    font-size: 20px; /* Adjust icon size */
+    transition: color 0.3s ease; /* Add smooth hover transition */
+  }  
+  
+/* Hover effect */
+.submenu li a:hover i {
+    color: #27ae60; /* Change icon color on hover */
+  }
+  
+    .hero-content{
+       display: flex;
+       flex-direction: column; /* Normal column, no reverse */
+       align-items: center;
+       margin: 30px auto;
+    }
+    .hero-text{
+       margin-bottom: 40px;
+       background-color: #5353536e;
+       padding: 30px;
+       margin-top: 0px;
+       width: 100%;
+    }
+    /*==============what-we-provide===============*/
+
+.what-we-provide{
+    max-width: 100%;
+    background-color: #007BFF;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-gap: 20px;
+    align-items: center;
+    justify-items: center;
+    height: 75vh;
+  }
+  }
+  @media(max-width:950px){
+    .navigation{
+       justify-content: space-between;
+       padding: 20px;
+       width: 100%;
+       position: relative;
+    }
+    .logo,
+    .nav-assessment-btn,
+    .menu-btn{
+       z-index: 106;
+    }
+    .logo{
+       margin-right: auto;
+       margin-left: 20px;
+    }
+    .footer-container .logo{
+       margin-left: 0px;
+    }
+    .menu {
+       display: none;
+       position: absolute;
+       background-color: #ffffff;
+       width: 100%;
+       padding: 0px;
+       margin: 0px;
+       box-shadow: 2px 30px 30px rgba(0,0,0,0.06);
+       top: 100%;
+       left: 0px;
+    }
+    .menu::after {
+       content: '';
+       position: absolute;
+       left: 0px;
+       top: -100%;
+       background-color: #ffffff;
+       width: 100%;
+       height: 100%;
+    }
+    .menu li{
+       width: 100%;
+       margin: 0px;
+       padding: 0px;
+    }
+    .menu li a{
+       width: 100%;
+       height: 45px;
+       display: flex;
+       align-items: center;
+       padding: 0px 20px;
+       margin: 0px;
+    }
+    .menu-icon{
+       cursor: pointer;
+       float: right; /* Ensure the menu icon is on the right */
+       margin-right: 20px;
+       padding: 10px 0px;
+       position: relative;
+       user-select: none;
+       z-index: 106;
+       display: block;
+    }
+    .menu-icon .nav-icon{
+       background-color: #181818;
+       display: block;
+       height: 2px;
+       position: relative;
+       width: 25px;
+       transition: all 0.2s ease-out;
+    }
+    .menu-icon .nav-icon::after,
+    .menu-icon .nav-icon::before{
+       background-color: #181818;
+       content: '';
+       height: 100%;
+       position: absolute;
+       transition: all 0.2s ease-out;
+       width: 100%;
+    }
+    .menu-icon .nav-icon::before{
+       top: 9px;
+    }
+    .menu-icon .nav-icon::after{
+       top: -9px;
+    }
+    .menu-btn:checked ~ .menu-icon .nav-icon::before {
+       transform: rotate(-45deg);
+       top: 0px;
+    }
+    .menu-btn:checked ~ .menu-icon .nav-icon::after {
+       transform: rotate(45deg);
+       top: 0px;
+    }
+    .menu-btn:checked ~ .menu-icon .nav-icon {
+       background-color: transparent;
+    }
+    .menu-btn{
+       display: none;
+    }
+    .menu-btn:checked ~ .menu{
+       display: block; /* Show the menu when menu-btn is checked */
+    }
+
+    /* General styles for the submenu */
+.submenu {
+    display: none; /* Hide submenu by default */
+    position: absolute;
+    background-color: #ffffff;
+    width: 200px; /* Set a fixed width for submenu */
+    padding: 10px 0; /* Add padding for submenu */
+    box-shadow: 2px 20px 30px rgba(0, 0, 0, 0.1); /* Shadow for better visibility */
+    z-index: 100; /* Ensure submenu is above other elements */
+}
+
+/* Show submenu on hover */
+.menu li:hover .submenu {
+    display: block; /* Show submenu on hover */
+}
+
+/* Styles for submenu items */
+.submenu li {
+    width: 100%; /* Make submenu items full width */
+    margin: 0; /* Reset margin */
+    padding: 0; /* Reset padding */
+}
+
+.submenu li a {
+    display: flex; /* Flex display for alignment */
+    align-items: center; /* Center items vertically */
+    padding: 10px 20px; /* Add padding to submenu links */
+    color: #333; /* Text color */
+    text-decoration: none; /* Remove underline from links */
+}
+
+/* Submenu link hover effect */
+.submenu li a:hover {
+    background-color: #f0f0f0; /* Background color on hover */
+}
+
+/* Icon styling in submenu */
+.submenu li a i {
+    margin-right: 10px; /* Space between icon and text */
+}
+
+/* Optional arrow indicator for dropdowns */
+.menu li a i.fa-chevron-down {
+    margin-left: auto; /* Push chevron icon to the right */
+    transition: transform 0.2s; /* Smooth transition for rotation */
+}
+
+/* Rotate chevron when submenu is open */
+.menu li:hover a i.fa-chevron-down {
+    transform: rotate(180deg); /* Rotate icon on hover */
+}
+ 
+    .what-we-provide{
+       grid-template-columns: 1fr 1fr;
+       grid-gap: 20px;
+    }
+    #our-story{
+       grid-template-columns: 1fr;
+    }
+    .our-story-img{
+       max-height: 400px;
+    }
+    .our-story-text{
+       padding: 30px;
+    }
+    #how-it-manifest{
+       grid-template-columns: 1fr;
+    }
+    #testimonials{
+       padding: 50px 0px;
+    }
+    .testimonials-img{
+       margin-right: auto;
+    }
+    .testimonials-img img{
+       width: 100%;
+    }
+    .testimonials-content{
+       grid-template-columns: 1fr;
+    }
+    .footer-container{
+       grid-template-columns: 1fr 1fr;
+       grid-gap: 40px;
+       display: grid;
+    }
+    .footer-container .logo{
+       margin-left: 0px;
+    }
+ }
+  
+ @media screen and (max-width: 620px) {
+   /* General Styles */
+   body {
+       font-size: 14px;
+       padding: 0 10px;
+   }
+
+   h1, h2, h3, h4, h5, h6 {
+       font-size: 1.2em;
+   }
+  
+   .logo {
+    margin-left: 0; /* Adjust margin if needed */
+    margin-right: auto; 
+    display: inline-block; /* Ensure proper alignment */
+}
+.nav-assessment-btn{
+    margin-right: 0px;
+    margin-left: 30px;
+}
+
+  
+   img {
+       max-width: 100%;
+       height: auto;
+   }
+
+   .service {
+      display: flex;
+      flex-direction: column;
+      align-items: center; /* Center the content */
+  }
+  
+  .service img {
+      width: 100%; /* Full width */
+      height: auto; /* Maintain aspect ratio */
+      max-width: 900px; /* Set a maximum width */
+      max-height: 500px; /* Set a maximum height */
+  }
+  
+   .what-we-provide {
+      margin-top: 40px;
+      margin-top: 40px;
+      display: flex;
+      flex-direction: column; /* Stacks items vertically */
+      align-items: center; /* Centers the content horizontally */
+      gap: 10px; /* Adds space between the items */
+     height: 60vh;
+     margin-left: 5px;
+  }
+
+  .w-info-box {
+      width: 90%;
+      padding: 10px; /* Adjusts padding for smaller screens */
+      text-align: center;
+      margin-top: 20px;
+      background-color: #f4f4f4; /* Optional: Add background to make each section distinct */
+      border-radius: 8px; /* Adds slight rounding for a cleaner look */
+      overflow: hidden; /* Prevents content overflow */
+      margin-left: 0px;
+      margin-top: 20px;
+  }
+
+  .w-info-icon {
+      font-size: 35px; /* Adjust icon size for smaller screens */
+      margin-bottom: 10px;
+  }
+
+  .w-info-text strong {
+      font-size: 1.3em; /* Slightly smaller text for strong element */
+      display: block; /* Ensures it occupies full width */
+      margin-bottom: 8px; /* Adds spacing below the strong element */
+  }
+
+  .w-info-text p {
+      font-size: 0.9em; /* Adjusts paragraph font size */
+      line-height: 1.5em; /* Adds more spacing between lines for readability */
+      color: #000;
+  }
+/* Container that holds the content */
+.story-number-box {
+    display: grid;
+    place-items: center; /* Center both horizontally and vertically */
+    grid-template-columns: repeat(2, 1fr); /* Two columns */
+    gap: 5px;
+    height: 50vh; /* Full height of the viewport if needed */
+    text-align: center; /* Center text */
+}
+
+.story-number-box div {
+    margin: 15px 0;
+}
+strong, span{
+    display: block; /* Make it a block-level element */
+    width: 200px; /* Take up full width */
+    text-align: center; /* Center the text inside */
+}
+
+
+
+   /* How It Manifest Section */
+   .how-it-manifest-left {
+       width: 100%;
+       margin-bottom: 20px;
+   }
+
+   .how-it-manifest-box-container {
+       display: block;
+   }
+
+   .how-it-manifest-box {
+       width: 100%;
+       margin-bottom: 15px;
+       text-align: center;
+   }
+
+   .how-it-manifest-box-text {
+       font-size: 1em;
+   }
+
+   /* Explore Section */
+   .Explore_container {
+       text-align: center;
+   }
+/* Explore container */
+.Explore {
+    display: flex;
+    justify-content: center; /* Center the boxes horizontally */
+    align-items: center; /* Center the boxes vertically */
+    flex-wrap: wrap; /* Ensure the boxes wrap to a new row if there are too many */
+    text-align: center; /* Center the text inside the boxes */
+    gap: 20px; /* Add some space between the boxes */
+    padding: 20px; /* Optional: Add padding around the container */
+}
+
+/* Explore image box */
+.Explore-image-box {
+    display: flex;
+    flex-direction: column; /* Stack the image and text vertically */
+    justify-content: center; /* Center image and text vertically inside each box */
+    align-items: center; /* Center image and text horizontally inside each box */
+    width: 200px; /* Set a fixed width for the boxes */
+    text-align: center; /* Center the text inside */
+}
+
+/* Image styling */
+.Explore-image {
+    max-width: 100%; /* Make sure the image fits inside the box */
+    height: auto; /* Maintain image aspect ratio */
+}
+
+/* Text styling */
+.Explore-image-box-text {
+    margin-top: 10px; /* Add space between the image and text */
+}
+
+/* Partners Section */
+/* Partners Section */
+.partners-grid {
+    display: flex;
+    flex-wrap: wrap; /* Allow items to wrap into multiple rows */
+    justify-content: center; /* Center items horizontally */
+    text-align: center; /* Center text */
+}
+
+/* Each partner div */
+.partner {
+    display: flex;
+    flex-direction: column; /* Stack image and description vertically */
+    align-items: center; /* Center image and description horizontally */
+    padding: 10px; /* Reduce padding for a smaller height */
+    margin: 5px; /* Space between each partner */
+    height: auto; /* Allow height to adjust to content */
+    width: calc(50% - 10px); /* Set width to 50% minus margin to fit two per row */
+}
+
+/* Image styling */
+.partner img {
+    max-width: 100%; /* Ensure image fits inside container */
+    width: 150px; /* Adjust the width for a smaller image */
+    height: auto; /* Maintain aspect ratio */
+}
+
+/* Partner description (optional) */
+.partner-description {
+    margin-top: 5px; /* Add space between image and description */
+    font-size: 14px; /* Adjust font size if needed */
+}
+/* Footer */
+.footer-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Center align items horizontally */
+    text-align: center; /* Center text within the container */
+    padding: 20px; /* Add some padding */
+    background-color: #f8f9fa; /* Optional background color */
+}
+
+.footer-company-box,
+.footer-link-box {
+    margin-bottom: 20px;
+    width: 100%; /* Full width for responsiveness */
+    text-align: center; /* Center align text within the boxes */
+}
+
+.footer-link-box strong{
+    display: block; /* Ensure the strong text takes full width */
+    margin-bottom: 10px; /* Space below the strong text */
+    text-align: center; /* Center align the strong text */
+    margin-left: 40px;
+}
+
+.footer-link-box  ul {
+    display: block; /* Ensure the strong text takes full width */
+    margin-bottom: 10px; /* Space below the strong text */
+    text-align: center; /* Center align the strong text */
+    margin-left: 80px;
+}
+.footer-bottom {
+    text-align: center; /* Center align the text */
+    margin-top: 10px; /* Space above bottom footer */
+    padding: 10px 0; /* Padding for the bottom footer */
+    font-size: 14px; /* Font size for copyright text */
+    color: #666; /* Color for copyright text */
+    margin-right: 100px;
+}
+.footer-bottom {
+    text-align: center; /* Center align the text */
+    padding: 10px 0; /* Padding for the bottom footer */
+    font-size: 14px; /* Font size for copyright text */
+    color: #666; /* Color for copyright text */
+    margin-right: 100px;
+}
+.footer-social a {
+    font-size: 24px; /* Icon size */
+    margin: 0 5px; /* Space between icons */
+    color: #333; /* Icon color */
+    transition: color 0.3s; /* Hover effect */
+}
+
+.footer-social a:hover {
+    color: #007bff; /* Change color on hover */
+}
+
+.footer-link-box ul {
+    list-style: none; /* Remove default list style */
+    padding: 0; /* Remove padding */
+}
+
+.footer-link-box ul li {
+    margin: 5px 0; /* Space between list items */
+}
+}
+@media(max-width:520px){
+    
+   .what-we-provide {
+    margin-top: 40px;
+    margin-top: 40px;
+    display: flex;
+    flex-direction: column; /* Stacks items vertically */
+    align-items: center; /* Centers the content horizontally */
+    gap: 10px; /* Adds space between the items */
+   height: 65vh;
+   margin-left: 5px;
+}
+    .footer-container{
+       grid-template-columns: 1fr;
+    }
+ }
+    @media screen and (max-width: 320px) {
+        /* General Styles */
+        body {
+            font-size: 12px; /* Smaller font for readability */
+            padding: 0 5px; /* Less padding to fit smaller screens */
+        }
+     
+        h1, h2, h3, h4, h5, h6 {
+            font-size: 1em; /* Reduce heading size */
+        }
+     
+        .logo {
+            margin-left: 0;
+            margin-right: auto;
+            display: inline-block;
+        }
+     
+        .nav-assessment-btn {
+         display: none;
+        }
+     
+        img {
+            max-width: 100%;
+            height: auto;
+        }
+     
+        .service {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+     
+        .service img {
+            width: 100%;
+            height: auto;
+            max-width: 300px; /* Set a smaller maximum width */
+            max-height: 200px; /* Set a smaller maximum height */
+        }
+     
+        .what-we-provide {
+            margin-top: 30px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 5px;
+            height: 50vh;
+            margin-left: 2px;
+        }
+     
+        .w-info-box {
+            width: 90%;
+            padding: 8px; /* Slightly reduce padding */
+            text-align: center;
+            background-color: #f4f4f4;
+            border-radius: 6px; /* Smaller rounding for a cleaner look */
+            overflow: hidden;
+            margin-left: 0px;
+            margin-top: 10px;
+        }
+     
+        .w-info-icon {
+            font-size: 30px; /* Adjust icon size */
+            margin-bottom: 8px;
+        }
+     
+        .w-info-text strong {
+            font-size: 1.2em; /* Smaller strong text */
+            margin-bottom: 5px;
+        }
+     
+        .w-info-text p {
+            font-size: 0.8em; /* Adjust paragraph font size */
+            line-height: 1.4em;
+        }
+     
+        /* Container holding the content */
+        .story-number-box {
+            grid-template-columns: 1fr; /* Single column for smaller screens */
+            gap: 3px;
+            height: 50vh;
+            text-align: center;
+        }
+     
+        .story-number-box div {
+            margin: 10px 0;
+        }
+     
+        strong, span {
+            width: 180px; /* Reduced width */
+            text-align: center;
+        }
+     
+        /* How It Manifest Section */
+        .how-it-manifest-left {
+            width: 100%;
+            margin-bottom: 15px;
+        }
+     
+        .how-it-manifest-box {
+            width: 100%;
+            margin-bottom: 10px;
+            text-align: center;
+        }
+     
+        .how-it-manifest-box-text {
+            font-size: 0.9em; /* Smaller text */
+        }
+     
+        /* Explore Section */
+        .Explore {
+            flex-direction: column; /* Stack boxes vertically */
+            gap: 10px; /* Less space between boxes */
+            padding: 10px;
+        }
+     
+        .Explore-image-box {
+            width: 150px; /* Reduced width */
+        }
+     
+        .Explore-image {
+            max-width: 100%;
+            height: auto;
+        }
+     
+        .Explore-image-box-text {
+            margin-top: 8px;
+        }
+     
+        /* Partners Section */
+        .partners-grid {
+            justify-content: center;
+        }
+     
+        .partner {
+            width: 100%; /* Full width for smaller screens */
+        }
+     
+        .partner img {
+            width: 120px; /* Adjust width for smaller image */
+        }
+     
+        .partner-description {
+            font-size: 12px; /* Smaller text */
+        }
+     
+        /* Footer */
+        .footer-container {
+            padding: 15px;
+            text-align: center;
+        }
+     
+        .footer-company-box,
+        .footer-link-box {
+            margin-bottom: 15px;
+            width: 100%;
+            text-align: center;
+        }
+     
+        .footer-link-box strong {
+            margin-bottom: 8px;
+        }
+     
+        .footer-link-box ul {
+            margin-left: 40px; /* Reduced margin */
+        }
+     
+        .footer-bottom {
+            margin-right: 0; /* No right margin */
+            font-size: 12px; /* Smaller font */
+        }
+     
+        .footer-social a {
+            font-size: 20px; /* Smaller icons */
+        }
+     }
+     
