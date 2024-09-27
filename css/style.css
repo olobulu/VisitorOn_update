@@ -166,23 +166,9 @@ ul{
 .submenu button:focus {
   outline: 2px solid #27ae60; /* Focus ring updated to greenish color */
 }
-
-/* Responsive Menu Button */
+/* Responsive Menu Button - Hidden on large screens */
 .menu-btn {
-  display: none;
-}
-
-.menu-icon {
-  display: none;
-  cursor: pointer;
-}
-
-.menu-icon .nav-icon {
-  height: 3px;
-  width: 25px;
-  background: white;
-  margin: 5px 0;
-  transition: all 0.3s ease-in-out;
+  display: none; /* Hide the checkbox on large screens */
 }
 
 /*===========hero content begin========>*/
@@ -291,7 +277,7 @@ ul{
 /*==============slides/functions===============*/
 .services-slider {
   width: 100%;
-  height: 600px;
+  height: 400px;
   margin-top: 5px;
   overflow: hidden;
   position: relative;
@@ -338,50 +324,41 @@ ul{
 /*==============slides end===============*/
 
 /*==============what-we-provide===============*/
-
 .what-we-provide{
-  max-width: 100%;
-  background-color: #007BFF;
+  max-width: 1200px;
+  width: 90%;
+  margin: 50px auto;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
-  grid-gap: 20px;
+  grid-gap: 30px;
   align-items: center;
   justify-items: center;
-  height: 50vh;
 }
 .w-info-box{
   display: flex;
   justify-content: flex-start;
   align-items: center;
-  margin-left: 40px;
 }
 
 .w-info-icon{
-  width: 100px;
+  width: 60px;
   height: 6 0px;
   display: flex;
   justify-content: center;
   align-items: center;
   margin-right: 15px;
-  font-size: 2.4rem;
+  font-size: 1.4rem;
   border-radius: 5px;
 }
 .w-info-box1 .w-info-icon{
-  background-color: #4fda42;
-  color: #fff;
+  background-color: #ffdad4;
 }
 .w-info-box2 .w-info-icon{
-  background-color: #4fda42;
-  color: #fff;
+  background-color: #d4ffe1;
 }
 
 .w-info-box3 .w-info-icon{
-  background-color: #4fda42;
-  color: #fff;
-}
-.w-info-box4 .w-info-icon{
-  background-color: #4fda42;
-  color: #fff;
+  background-color: #d4e7ff;
 }
 .w-info-text{
   display: flex;
@@ -389,16 +366,16 @@ ul{
 }
 
 .w-info-text strong{
-   color: #4fda42;
+   color: #122853;
    font-weight: 700;
-   font-size: 2rem;
 }
 
 .w-info-text p{
-   color: #fff;
+   color: #535353;
    letter-spacing: 0.3px;
-   font-size: 1rem;
+   font-size: 0.9rem;
 }
+
 
 
 /*---------------------------------OUR STORY-------------*/
@@ -462,15 +439,21 @@ ul{
 }
 
 .how-it-manifest-left {
-  max-width: 1200px;
+  max-width: 1000px;
   margin: 0 auto;
   text-align: center;
 }
 
-.how-it-manifest-left h2 {
+.how-it-manifest-left h2, h4 {
   font-size: 2.5rem;
   margin-bottom: 20px;
   color: #4fda42;
+}
+.manifest-image{
+  background-color: rgba(143, 143, 150, 0.39);
+   width: 800px;
+  margin: 0 auto;
+  margin-top: 20px;
 }
 
 /* Container for boxes */
@@ -582,7 +565,7 @@ ul{
   font-weight: bold;
 }
 
-.partners-section {
+.partners-section-2 {
   padding: 50px 0; /* Adjust vertical padding as needed */
   background-color: #701a1a1f;
   text-align: center;
@@ -703,7 +686,6 @@ footer {
   margin-right: 8px;
   color: #4fda42;
 }
-
 .footer-link-box ul li a:hover {
   color: #4fda42;
 }
