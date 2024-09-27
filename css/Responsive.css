@@ -55,23 +55,11 @@
     }
     .hero-text{
        margin-bottom: 40px;
-       background-color: #5353536e;
        padding: 30px;
        margin-top: 0px;
        width: 100%;
     }
-    /*==============what-we-provide===============*/
-
-.what-we-provide{
-    max-width: 100%;
-    background-color: #007BFF;
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    grid-gap: 20px;
-    align-items: center;
-    justify-items: center;
-    height: 75vh;
-  }
+   
   }
   @media(max-width:950px){
     .navigation{
@@ -126,14 +114,12 @@
        margin: 0px;
     }
     .menu-icon{
-       cursor: pointer;
-       float: right; /* Ensure the menu icon is on the right */
-       margin-right: 20px;
-       padding: 10px 0px;
-       position: relative;
-       user-select: none;
-       z-index: 106;
-       display: block;
+        cursor: pointer;
+        float: right;
+        padding: 10px 0px;
+        position: relative;
+        user-select: none;
+        z-index: 106;
     }
     .menu-icon .nav-icon{
        background-color: #181818;
@@ -227,11 +213,6 @@
 .menu li:hover a i.fa-chevron-down {
     transform: rotate(180deg); /* Rotate icon on hover */
 }
- 
-    .what-we-provide{
-       grid-template-columns: 1fr 1fr;
-       grid-gap: 20px;
-    }
     #our-story{
        grid-template-columns: 1fr;
     }
@@ -267,432 +248,217 @@
  }
   
 
- @media screen and (max-width: 720px) {
-   /* General Styles */
-   body {
-       font-size: 14px;
-       padding: 0 10px;
+ @media(max-width: 620px) {
+    .hero-text{
+        padding: 20px;
+     }
+    .hero-text h1,
+   .our-story-text h2,
+   .blogs-heading h2,
+   .how-it-manifest-left h3,
+   .how-it-manifest-right h3,
+   .team-heading h3,
+   .testimonials-heading h3{
+      font-size: 1.8rem;
+      line-height: 2.2rem;
    }
+ .hero-text-btns a{
+    width: 100%;
+    margin-top: 5px;
+    text-align: center;
+ }
+ .nav-assessment-btn{
+    margin-left: 10px;
+ }
+ /*==============slides/functions===============*/
 
-   h1, h2, h3, h4, h5, h6 {
-       font-size: 1.2em;
-   }
+  .services-slider h1 {
+    color: #1a1b19;
+  }
   
-   .logo {
-    margin-left: 0; /* Adjust margin if needed */
-    margin-right: auto; 
-    display: inline-block; /* Ensure proper alignment */
-}
-.nav-assessment-btn{
-     display: none;
-}
-
+  .slider-wrapper {
+    margin-top: 20px;
+    display: flex;
+    animation: slide 10s infinite;
+  }
   
-   img {
-       max-width: 100%;
-       height: auto;
-   }
-
-   .service {
-      display: flex;
-      flex-direction: column;
-      align-items: center; /* Center the content */
+  .service {
+    width: calc(250% / 6);
+    padding: 10px;
+    box-sizing: border-box;
+    text-align: center;
   }
   
   .service img {
-      width: 100%; /* Full width */
-      height: auto; /* Maintain aspect ratio */
-      max-width: 900px; /* Set a maximum width */
-      max-height: 500px; /* Set a maximum height */
+    margin-top: 20px;
+    width: 100%;
+    position: relative;
+    border-radius: 0% 0% 0% 0%;
   }
   
-   .what-we-provide {
-      margin-top: 40px;
-      margin-top: 40px;
-      display: flex;
-      flex-direction: column; /* Stacks items vertically */
-      align-items: center; /* Centers the content horizontally */
-      gap: 10px; /* Adds space between the items */
-     height: 60vh;
-     margin-left: 5px;
+  @keyframes slide {
+    15% { transform: translateX(0); }
+    16.67% { transform: translateX(-16.67%); }
+    33.33% { transform: translateX(-33.33%); }
+    50% { transform: translateX(-50%); }
+    66.67% { transform: translateX(-66.67%); }
+    83.33% { transform: translateX(-83.33%); }
+    100% { transform: translateX(-100%); }
+  }
+  
+  /*==============slides end===============*/
+  
+  .story-number-box > div {
+    max-width: 40%;
+  }
+  
+  .story-number-box strong {
+    font-size: 1.5rem;
   }
 
-  .w-info-box {
-      width: 90%;
-      padding: 10px; /* Adjusts padding for smaller screens */
-      text-align: center;
-      margin-top: 20px;
-      background-color: #f4f4f4; /* Optional: Add background to make each section distinct */
-      border-radius: 8px; /* Adds slight rounding for a cleaner look */
-      overflow: hidden; /* Prevents content overflow */
-      margin-left: 0px;
-      margin-top: 20px;
+  .story-number-box span {
+    font-size: 1rem; /* Adjust font size for the span text */
+    text-transform: uppercase;
+    font-size: 20px;
+    font-weight: bold;
   }
 
-  .w-info-icon {
-      font-size: 35px; /* Adjust icon size for smaller screens */
-      margin-bottom: 10px;
+  .manifest-image{
+    background-color: rgba(143, 143, 150, 0.39);
+     width: 500px;
+    margin: 0 auto;
+    margin-top: 20px;
   }
-
-  .w-info-text strong {
-      font-size: 1.3em; /* Slightly smaller text for strong element */
-      display: block; /* Ensures it occupies full width */
-      margin-bottom: 8px; /* Adds spacing below the strong element */
+  
+.manifest-image img{
+     width: 400px;
+    margin: 0 auto;
+    margin-top: 20px;
   }
-
-  .w-info-text p {
-      font-size: 0.9em; /* Adjusts paragraph font size */
-      line-height: 1.5em; /* Adds more spacing between lines for readability */
-      color: #000;
-  }
-/* Container that holds the content */
-.story-number-box {
-    display: grid;
-    place-items: center; /* Center both horizontally and vertically */
-    grid-template-columns: repeat(2, 1fr); /* Two columns */
-    gap: 5px;
-    height: 50vh; /* Full height of the viewport if needed */
-    text-align: center; /* Center text */
-}
-
-.story-number-box div {
-    margin: 15px 0;
-}
-strong, span{
-    display: block; /* Make it a block-level element */
-    width: 200px; /* Take up full width */
-    text-align: center; /* Center the text inside */
-}
-
-
-
-   /* How It Manifest Section */
-   .how-it-manifest-left {
-       width: 100%;
-       margin-bottom: 20px;
-   }
-
-   .how-it-manifest-box-container {
-       display: block;
-   }
-
-   .how-it-manifest-box {
-       width: 100%;
-       margin-bottom: 15px;
-       text-align: center;
-   }
-
-   .how-it-manifest-box-text {
-       font-size: 1em;
-   }
-
-   /* Explore Section */
-   .Explore_container {
-       text-align: center;
-   }
-/* Explore container */
-.Explore {
-    display: flex;
-    justify-content: center; /* Center the boxes horizontally */
-    align-items: center; /* Center the boxes vertically */
-    flex-wrap: wrap; /* Ensure the boxes wrap to a new row if there are too many */
-    text-align: center; /* Center the text inside the boxes */
-    gap: 20px; /* Add some space between the boxes */
-    padding: 20px; /* Optional: Add padding around the container */
-}
-
-/* Explore image box */
-.Explore-image-box {
-    display: flex;
-    flex-direction: column; /* Stack the image and text vertically */
-    justify-content: center; /* Center image and text vertically inside each box */
-    align-items: center; /* Center image and text horizontally inside each box */
-    width: 200px; /* Set a fixed width for the boxes */
-    text-align: center; /* Center the text inside */
-}
-
-/* Image styling */
-.Explore-image {
-    max-width: 100%; /* Make sure the image fits inside the box */
-    height: auto; /* Maintain image aspect ratio */
-}
-
-/* Text styling */
-.Explore-image-box-text {
-    margin-top: 10px; /* Add space between the image and text */
-}
-
-/* Partners Section */
-/* Partners Section */
-.partners-grid {
-    display: flex;
-    flex-wrap: wrap; /* Allow items to wrap into multiple rows */
-    justify-content: center; /* Center items horizontally */
-    text-align: center; /* Center text */
-}
-
-/* Each partner div */
-.partner {
-    display: flex;
-    flex-direction: column; /* Stack image and description vertically */
-    align-items: center; /* Center image and description horizontally */
-    padding: 10px; /* Reduce padding for a smaller height */
-    margin: 5px; /* Space between each partner */
-    height: auto; /* Allow height to adjust to content */
-    width: calc(50% - 10px); /* Set width to 50% minus margin to fit two per row */
-}
-
-/* Image styling */
-.partner img {
-    max-width: 100%; /* Ensure image fits inside container */
-    width: 150px; /* Adjust the width for a smaller image */
-    height: auto; /* Maintain aspect ratio */
-}
-
-/* Partner description (optional) */
-.partner-description {
-    margin-top: 5px; /* Add space between image and description */
-    font-size: 14px; /* Adjust font size if needed */
-}
-/* Footer */
-.footer-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center; /* Center align items horizontally */
-    text-align: center; /* Center text within the container */
-    padding: 20px; /* Add some padding */
-    background-color: #f8f9fa; /* Optional background color */
-}
-
-.footer-company-box,
-.footer-link-box {
-    margin-bottom: 20px;
-    width: 100%; /* Full width for responsiveness */
-    text-align: center; /* Center align text within the boxes */
-}
-
-.footer-link-box strong{
-    display: block; /* Ensure the strong text takes full width */
-    margin-bottom: 10px; /* Space below the strong text */
-    text-align: center; /* Center align the strong text */
-    margin-left: 40px;
-}
-
-.footer-link-box  ul {
-    display: block; /* Ensure the strong text takes full width */
-    margin-bottom: 10px; /* Space below the strong text */
-    text-align: center; /* Center align the strong text */
-    margin-left: 80px;
-}
-.footer-bottom {
-    text-align: center; /* Center align the text */
-    margin-top: 10px; /* Space above bottom footer */
-    padding: 10px 0; /* Padding for the bottom footer */
-    font-size: 14px; /* Font size for copyright text */
-    color: #666; /* Color for copyright text */
-    margin-right: 100px;
-}
-.footer-bottom {
-    text-align: center; /* Center align the text */
-    padding: 10px 0; /* Padding for the bottom footer */
-    font-size: 14px; /* Font size for copyright text */
-    color: #666; /* Color for copyright text */
-    margin-right: 100px;
-}
-.footer-social a {
-    font-size: 24px; /* Icon size */
-    margin: 0 5px; /* Space between icons */
-    color: #333; /* Icon color */
-    transition: color 0.3s; /* Hover effect */
-}
-
-.footer-social a:hover {
-    color: #007bff; /* Change color on hover */
-}
-
-.footer-link-box ul {
-    list-style: none; /* Remove default list style */
-    padding: 0; /* Remove padding */
-}
-
-.footer-link-box ul li {
-    margin: 5px 0; /* Space between list items */
-}
-}
-@media screen and(min-width:520px){
-
-     /* General Styles */
-     body {
-        font-size: 12px; /* Smaller font for readability */
-        padding: 0 5px; /* Less padding to fit smaller screens */
-    }
- 
-    h1, h2, h3, h4, h5, h6 {
-        font-size: 1em; /* Reduce heading size */
-    }
- 
-    .logo {
-        margin-left: 0;
-        margin-right: auto;
-        display: inline-block;
-    }
- 
-    .nav-assessment-btn {
-     display: none;
-    }
- 
-    img {
-        max-width: 100%;
-        height: auto;
-    }
- 
-    .service {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-    }
- 
-    .service img {
-        width: 100%;
-        height: auto;
-        max-width: 300px; /* Set a smaller maximum width */
-        max-height: 200px; /* Set a smaller maximum height */
-    }
- 
-    .what-we-provide {
-        margin-top: 30px;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        gap: 5px;
-        height: 50vh;
-        margin-left: 2px;
-    }
- 
-    .w-info-box {
-        width: 90%;
-        padding: 8px; /* Slightly reduce padding */
-        text-align: center;
-        background-color: #f4f4f4;
-        border-radius: 6px; /* Smaller rounding for a cleaner look */
-        overflow: hidden;
-        margin-left: 0px;
-        margin-top: 10px;
-    }
- 
-    .w-info-icon {
-        font-size: 30px; /* Adjust icon size */
-        margin-bottom: 8px;
-    }
- 
-    .w-info-text strong {
-        font-size: 1.2em; /* Smaller strong text */
-        margin-bottom: 5px;
-    }
- 
-    .w-info-text p {
-        font-size: 0.8em; /* Adjust paragraph font size */
-        line-height: 1.4em;
-    }
- 
-    /* Container holding the content */
-    .story-number-box {
-        grid-template-columns: 1fr; /* Single column for smaller screens */
-        gap: 3px;
-        height: 50vh;
-        text-align: center;
-    }
- 
-    .story-number-box div {
-        margin: 10px 0;
-    }
- 
-    strong, span {
-        width: 180px; /* Reduced width */
-        text-align: center;
-    }
- 
-    /* How It Manifest Section */
-    .how-it-manifest-left {
-        width: 100%;
-        margin-bottom: 15px;
-    }
- 
-    .how-it-manifest-box {
-        width: 100%;
-        margin-bottom: 10px;
-        text-align: center;
-    }
- 
-    .how-it-manifest-box-text {
-        font-size: 0.9em; /* Smaller text */
-    }
- 
-    /* Explore Section */
-    .Explore {
-        flex-direction: column; /* Stack boxes vertically */
-        gap: 10px; /* Less space between boxes */
-        padding: 10px;
-    }
- 
-    .Explore-image-box {
-        width: 150px; /* Reduced width */
-    }
- 
-    .Explore-image {
-        max-width: 100%;
-        height: auto;
-    }
- 
-    .Explore-image-box-text {
-        margin-top: 8px;
-    }
- 
-    /* Partners Section */
-    .partners-grid {
-        justify-content: center;
-    }
- 
-    .partner {
-        width: 100%; /* Full width for smaller screens */
-    }
- 
-    .partner img {
-        width: 120px; /* Adjust width for smaller image */
-    }
- 
-    .partner-description {
-        font-size: 12px; /* Smaller text */
-    }
- 
-    /* Footer */
-    .footer-container {
-        padding: 15px;
-        text-align: center;
-    }
- 
-    .footer-company-box,
-    .footer-link-box {
-        margin-bottom: 15px;
-        width: 100%;
-        text-align: center;
-    }
- 
-    .footer-link-box strong {
-        margin-bottom: 8px;
-    }
- 
-    .footer-link-box ul {
-        margin-left: 40px; /* Reduced margin */
-    }
- 
-    .footer-bottom {
-        margin-right: 0; /* No right margin */
-        font-size: 12px; /* Smaller font */
-    }
- 
-    .footer-social a {
-        font-size: 20px; /* Smaller icons */
-    }
-    
+.partners-section-2 {
+   border-radius: 0; /* Top right and bottom left border-radius */
+   background-color: #0eaa28ee;
  }
+}
+
+
+@media(max-width: 320px) {
+   .hero-text{
+       padding: 5px;
+    }
+   .hero-text h1,
+  .our-story-text h2,
+  .blogs-heading h2,
+  .how-it-manifest-left h3,
+  .how-it-manifest-right h3,
+  .team-heading h3,
+  .testimonials-heading h3{
+     font-size: 1rem;
+     line-height: 2rem;
+  }
+.hero-text-btns a{
+   width: 100%;
+   margin-top: 5px;
+   text-align: center;
+}
+.nav-assessment-btn{
+   display: none;
+}
+.menu-btn{
+   float: right;
+}
+/*==============slides/functions===============*/
+.services-slider {
+   height: auto; /* Adjust height to auto for smaller screens */
+   padding: 10px; /* Reduce padding */
+ }
+
+ .services-slider h1 {
+   font-size: 1em; /* Adjust font size for better visibility */
+   margin-bottom: 10px; /* Add margin for spacing */
+ }
+
+ .slider-wrapper {
+   width: 500%; /* Adjust width to accommodate more items */
+   animation: none; /* Disable animation for smaller screens */
+   animation: slide 10s infinite;
+ }
+
+ .service {
+   width: 100%; /* Full width for each service item */
+   padding: 10px; /* Reduce padding for better fit */
+ }
+
+ .service img {
+   border-radius: 0%; /* Slightly adjust border radius */
+   margin-top: 5px; /* Add margin for spacing */
+ }
+ 
+ /*==============slides end===============*/
+ 
+ .story-number-box > div {
+   max-width: 40%;
+ }
+ 
+ .story-number-box strong {
+   font-size: 1.5rem;
+ }
+
+ .story-number-box span {
+   font-size: 1rem; /* Adjust font size for the span text */
+   text-transform: uppercase;
+   font-size: 20px;
+   font-weight: bold;
+ }
+
+ .manifest-image{
+   background-color: rgba(143, 143, 150, 0.39);
+    width: 500px;
+   margin: 0 auto;
+   margin-top: 20px;
+ }
+ 
+.manifest-image img{
+    width: 400px;
+   margin: 0 auto;
+   margin-top: 20px;
+ }
+.partners-section-2 {
+  border-radius: 0; /* Top right and bottom left border-radius */
+  background-color: #0eaa28ee;
+}
+
+/*==============what-we-provide===============*/
+.what-we-provide{
+   width: 100%;
+   margin: 30px auto;
+   margin-left: 30px;
+   display: grid;
+   grid-template-columns: 1fr;
+   grid-gap: 10px;
+   align-items: center;
+   justify-items: center;
+ }
+ 
+ .story-number-box > div {
+   max-width: 60%;
+ }
+ /* Container for boxes */
+ .how-it-manifest-box {
+   width: 100%; /* Full width on very small screens (320px and smaller) */
+ }
+ 
+ .manifest-image{
+   background-color: rgba(143, 143, 150, 0.39);
+    width: 100%;
+   margin: 0 auto;
+   margin-top: 20px;
+ }
+ 
+.manifest-image img{
+    width: 50%;
+   margin: 0 auto;
+   margin-top: 20px;
+ }
+ }
+ 
