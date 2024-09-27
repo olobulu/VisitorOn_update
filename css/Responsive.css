@@ -248,7 +248,7 @@
  }
   
 
- @media(max-width: 620px) {
+ @media(max-width: 720px) {
     .hero-text{
         padding: 20px;
      }
@@ -342,7 +342,7 @@
 }
 
 
-@media(max-width: 320px) {
+@media(max-width: 480px) {
    .hero-text{
        padding: 5px;
     }
