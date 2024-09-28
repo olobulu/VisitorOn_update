@@ -6,7 +6,7 @@
   @media(max-width:1050px) {
     
 .logo img {
-    height: 50px;
+    height: 10px;
     border-radius: 5px;
   }
   .menu li a {
@@ -74,8 +74,10 @@
        z-index: 106;
     }
     .logo{
-       margin-right: auto;
-       margin-left: 20px;
+    position: fixed; /* Keeps the logo fixed on the screen */
+    top: 50px; /* Adjust as needed to align vertically with the menu-icon */
+    user-select: none; /* Prevents text selection */
+    z-index: 106; /* Ensures it appears above other elements */
     }
     .footer-container .logo{
        margin-left: 0px;
@@ -114,12 +116,12 @@
        margin: 0px;
     }
     .menu-icon{
-        cursor: pointer;
-        float: right;
-        padding: 10px 0px;
-        position: relative;
-        user-select: none;
-        z-index: 106;
+      cursor: pointer;
+      position: fixed; /* Keeps the icon fixed on the screen */
+      top: 80px; /* Adjust as needed to set the vertical position */
+      right: 50px; /* Sets the horizontal position to the right */
+      user-select: none; /* Prevents text selection */
+      z-index: 106; /* Ensures it appears above other elements */
     }
     .menu-icon .nav-icon{
        background-color: #181818;
@@ -249,10 +251,47 @@
   
 
  @media(max-width: 720px) {
+   
+.hero-img{
+   display: none;
+}
     .hero-text{
-        padding: 20px;
+      margin-top: 0px;
      }
-    .hero-text h1,
+    .hero-text h1{
+      text-transform:uppercase ;
+      font-size: 40px;
+      text-align: center
+    }
+    .animated-span { 
+      color: #3AAA35;
+      font-weight: bold;
+      animation: colorPulse 3s infinite, textShadowPulse 3s infinite;
+    }
+    
+    @keyframes colorPulse {
+      0% {
+        color: #3AAA35;
+      }
+      50% {
+        color: #28A745;
+      }
+      100% {
+        color: #3AAA35;
+      }
+    }
+    
+    @keyframes textShadowPulse {
+      0%, 100% {
+        text-shadow: 0px 0px 5px #009FE3, 0px 0px 10px #009FE3;
+      }
+      50% {
+        text-shadow: 0px 0px 15px #009FE3, 0px 0px 20px #009FE3;
+      }
+    }  
+    .hero-text p{
+      text-align: center
+    }
    .our-story-text h2,
    .blogs-heading h2,
    .how-it-manifest-left h3,
@@ -262,52 +301,38 @@
       font-size: 1.8rem;
       line-height: 2.2rem;
    }
+   
+  .hero-text-btns {
+   margin-top: 5px;
+}
  .hero-text-btns a{
     width: 100%;
     margin-top: 5px;
-    text-align: center;
+    text-align: center; 
  }
  .nav-assessment-btn{
     margin-left: 10px;
  }
  /*==============slides/functions===============*/
+ .services-slider {
+   width: 100%;
+   height: 80vh; /* Overall height of the services slider */
+   display: flex; /* Enable flexbox to center the slider-wrapper */
+   justify-content: center; /* Center horizontally */
+   align-items: center; /* Center vertically */
+ 
+ }
+ .slider-wrapper {
+   width: 100%; /* Full width for the slider */
+   max-height: 50vh; /* Limit the maximum height for better control */
+   overflow: hidden; /* Hide overflow if necessary */
+   position: relative; /* Keep position relative for inner content */
+ }
+ .service img {
+   width: 100%;
+ }
 
-  .services-slider h1 {
-    color: #1a1b19;
-  }
-  
-  .slider-wrapper {
-    margin-top: 20px;
-    display: flex;
-    animation: slide 10s infinite;
-  }
-  
-  .service {
-    width: calc(250% / 6);
-    padding: 10px;
-    box-sizing: border-box;
-    text-align: center;
-  }
-  
-  .service img {
-    margin-top: 20px;
-    width: 100%;
-    position: relative;
-    border-radius: 0% 0% 0% 0%;
-  }
-  
-  @keyframes slide {
-    15% { transform: translateX(0); }
-    16.67% { transform: translateX(-16.67%); }
-    33.33% { transform: translateX(-33.33%); }
-    50% { transform: translateX(-50%); }
-    66.67% { transform: translateX(-66.67%); }
-    83.33% { transform: translateX(-83.33%); }
-    100% { transform: translateX(-100%); }
-  }
-  
-  /*==============slides end===============*/
-  
+ /*==============slides/functions ends===============*/
   .story-number-box > div {
     max-width: 40%;
   }
@@ -335,18 +360,13 @@
     margin: 0 auto;
     margin-top: 20px;
   }
-.partners-section-2 {
-   border-radius: 0; /* Top right and bottom left border-radius */
-   background-color: #0eaa28ee;
- }
 }
 
 
 @media(max-width: 480px) {
    .hero-text{
-       padding: 5px;
+      
     }
-   .hero-text h1,
   .our-story-text h2,
   .blogs-heading h2,
   .how-it-manifest-left h3,
@@ -395,7 +415,7 @@
  }
  
  /*==============slides end===============*/
- 
+
  .story-number-box > div {
    max-width: 40%;
  }
@@ -423,10 +443,6 @@
    margin: 0 auto;
    margin-top: 20px;
  }
-.partners-section-2 {
-  border-radius: 0; /* Top right and bottom left border-radius */
-  background-color: #0eaa28ee;
-}
 
 /*==============what-we-provide===============*/
 .what-we-provide{
