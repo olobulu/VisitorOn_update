@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!--======title=====================-->
+    <title>VisitorON</title>
+    <!---============CSS==========-->
+    <link rel="stylesheet" href="css/style.css">
+    <!---==========Fav-Icon=============----->
+    <link rel="shortcut icon" href="images/logo2.jpeg">
+    <!------==========import-poppins-font============-->
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+
+    <!--------------font awesome for icons------------>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+      <!-- Link Swiper's CSS -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+<style>
+  body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  /* Section Styling */
+  section {
+    background-color: #f9f9f9;
+  }
+
+  /* Responsive Design */
+  @media (max-width: 768px) {
+    .plan-card {
+      width: 100%;
+      margin: 20px auto;
+    }
+
+    form {
+      padding: 20px;
+    }
+  }
+
+  @media (max-width: 480px) {
+    h2 {
+      font-size: 28px;
+    }
+
+    button {
+      width: 100%;
+    }
+  }
+
+</style>
+
+</head>
+<body> 
+<!--========HOME SECTION============================-->
+<section id="hero">
+<!---============nav area============-->
+<nav class="navigation">
+<!----menu-btn-->
+<input type="checkbox" class="menu-btn" id="menu-btn" style="display: none;">
+<label for="menu-btn" class="menu-icon">
+    <span class="nav-icon"></span>
+</label>
+
+    <!---=====logo=====-->
+    <a href="#" class="logo">
+        <img src="images/logo.png" alt="VisitorON Logo" style="height: 50px; border-radius: 5px;">
+    </a>
+    
+    <!--menu-->
+    <ul class="menu">
+        <li><a href="#">Find Help</a>
+         <!-- Sub-menu -->
+         <ul class="submenu">
+            <li><a href="contact.html">Contact</a></li>
+            <li><a href="About.html">About</a></li>
+            <li><a href="blog.html">Resources</a></li>
+        </ul>
+        </li>
+        <li><a href="#">Solutions</a>
+             <!-- Sub-menu -->
+            <ul class="submenu">
+            <li><a href="#">Visitor Management</a></li>
+            <li><a href="#">Integrations</a></li>
+            <li><a href="#">Applications</a></li>
+        </ul>
+        </li>
+        <li><a href="#">Pricing</a>
+            <!-- Sub-menu -->
+            <ul class="submenu">
+                <li><a href="#">Plans</a></li>
+                <li><a href="#">Get Quote</a></li>
+            </ul>
+        </li>
+        <li><a href="#">Industries</a>
+              <!-- Sub-menu -->
+              <ul class="submenu">
+                <li><a href="#">Education</a></li>
+                <li><a href="#">Real estate</a></li>
+                <li><a href="#">Government</a></li>
+                <li><a href="#">Law</a></li>
+                <li><a href="#">Healthcare</a></li>
+                <li><a href="#">Banking & Finance</a></li>
+                <li><a href="#">Manufacturing</a></li>
+            </ul>
+        </li>
+        <li><a href="#"><i class="fa fa-search"></i></a>
+              <!-- Sub-menu -->
+              <ul class="submenu">
+                <li> <input type="text" placeholder="visitoron">
+                    <button>GO</button>
+                </li>
+            </ul>
+            <li><a href="#"><span class="vertical-line"></span></a></li>
+            <li><a href="login.html" class="login"><i class="fa fa-user"></i>&nbsp;&nbsp;Login</a></li>
+
+    </ul>
+
+    <!------Assessment Btn===========-->
+    <a href="get_started.html.html" class="nav-assessment-btn">Get Started</a>
+</nav>
+<!-----==nav end==-->
+<section id="get-quote" style="text-align: center; padding: 20px;">
+    <h2 style="font-size: 36px; margin-bottom: 20px;">Tell us about your business needs and we will help you</h2>
+    
+    <form action="/submit-quote" method="POST" style="max-width: 600px; margin: 0 auto;">
+      <!-- Name and Phone horizontally aligned -->
+      <div style="display: flex; gap: 10px; margin-bottom: 10px;">
+        <input type="text" name="name" placeholder="Name" required 
+               style="flex: 1; padding: 10px; height: 35px; border-radius: 5px; border: 1px solid #ccc;">
+        <input type="tel" name="phone" placeholder="Phone" required 
+               style="flex: 1; padding: 10px; height: 35px; border-radius: 5px; border: 1px solid #ccc;">
+      </div>
+  
+      <!-- Email field (full width) -->
+      <input type="email" name="email" placeholder="Email" required 
+             style="width: 100%; padding: 10px; height: 35px; margin: 10px 0; border-radius: 5px; border: 1px solid #ccc;">
+  
+      <!-- Company Name and Location horizontally aligned -->
+      <div style="display: flex; gap: 10px; margin-bottom: 10px;">
+        <input type="text" name="company" placeholder="Company Name" required 
+               style="flex: 1; padding: 10px; height: 35px; border-radius: 5px; border: 1px solid #ccc;">
+        <input type="text" name="location" placeholder="Location" required 
+               style="flex: 1; padding: 10px; height: 35px; border-radius: 5px; border: 1px solid #ccc;">
+      </div>
+  
+      <!-- Company Size (full width) -->
+      <input type="text" name="company-size" placeholder="Company Size" required 
+             style="width: 100%; padding: 10px; height: 35px; margin: 10px 0; border-radius: 5px; border: 1px solid #ccc;">
+  
+      <!-- Message field (full width) -->
+      <textarea name="message" placeholder="Message" rows="5" 
+                style="width: 100%; padding: 10px; height: 100px; margin: 10px 0; border-radius: 5px; border: 1px solid #ccc;"></textarea>
+  
+      <!-- Submit button -->
+      <button type="submit" style="padding: 10px 20px; background-color: #007bff; color: white; border: none; border-radius: 5px; cursor: pointer; font-size: 16px;">Get a Quote</button>
+    </form>
+  </section>
+
+  <section id="plans" style="text-align: center;">
+    <h2>Our Plans & Pricing</h2>
+    <div style="display: flex; justify-content: space-around; flex-wrap: wrap; gap: 10px; padding: 10px;">
+      
+      <!-- Basic Plan -->
+      <div class="plan-card" style="border: 1px solid #ccc; padding: 30px; margin: 10px; width: 200px; border-radius: 10px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);">
+        <h3>Basic</h3>
+        <p style="font-size: 24px;">Ksh 1500</p>
+        <p>per Active user/month</p>
+        <button style="padding: 10px 20px; background-color: #007bff; color: white; border: none; border-radius: 5px; cursor: pointer;">Select Plan</button>
+      </div>
+  
+      <!-- Standard Plan -->
+      <div class="plan-card" style="border: 1px solid #ccc; padding: 30px; margin: 10px; width: 200px; border-radius: 10px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);">
+        <h3>Standard</h3>
+        <p style="font-size: 24px;">Ksh 3000</p>
+        <p>per Active user/month</p>
+        <button style="padding: 10px 20px; background-color: #007bff; color: white; border: none; border-radius: 5px; cursor: pointer;">Select Plan</button>
+      </div>
+  
+      <!-- Premium Plan -->
+      <div class="plan-card" style="border: 1px solid #ccc; padding: 30px; margin: 10px; width: 200px; border-radius: 10px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);">
+        <h3>Premium</h3>
+        <p style="font-size: 24px;">Ksh 5000</p>
+        <p>per Active user/month</p>
+        <button style="padding: 10px 20px; background-color: #007bff; color: white; border: none; border-radius: 5px; cursor: pointer;">Select Plan</button>
+      </div>
+  
+      <!-- Enterprise Plan -->
+      <div class="plan-card" style="border: 1px solid #ccc; padding: 30px; margin: 10px; width: 200px; border-radius: 10px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);">
+        <h3>Enterprise</h3>
+        <p style="font-size: 24px;">Ksh 10000</p>
+        <p>per Active user/month</p>
+        <button style="padding: 10px 20px; background-color: #007bff; color: white; border: none; border-radius: 5px; cursor: pointer;">Select Plan</button>
+      </div>
+  
+    </div>
+  </section>
+
+  <!---====Footer====-->
+  <section>
+    <footer>
+        <div class="footer-container">
+            
+            <!-----***company-box****-->
+            <div class="footer-company-box">
+                <!---logo-->
+                <img src="images/logo.png" alt="VisitorON Logo" style="height: 50px; border-radius: 5px;">
+                <!---details-->
+                <p>Contact Our dedicated team, through social links.</p>
+                <!---social-icons-->
+                <div class="footer-social">
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fab fa-x"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                </div>
+            </div><!----------company-box-end------>
+            <!---********link************-->
+            <div class="footer-link-box">
+                <strong>Main Link's</strong>
+                <ul>
+                    <li><a href="#">Find-help</a></li>
+                    <li><a href="#">Solutions</a></li>
+                    <li><a href="#">Industries</a></li>
+                    <li><a href="#">Pricing</a></li>
+                    <li><a href="#">Login</a></li>
+                </ul>
+            </div><!----------link-box-end------>
+            <!---********link************-->
+            <div class="footer-link-box">
+            </div><!----------link-box-end------>
+        </div><!----====container-end====-->
+
+        <!---****bottom-footer****-->
+        <div class="footer-bottom">
+            <span>Powered By Infiware Solution Ltd Copyright &copy; 2024</span>
+        </div>
+    </footer>
+    </section>
+</body>
+</html>
